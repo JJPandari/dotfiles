@@ -20,10 +20,10 @@ return
 RAlt & z::
 GetKeyState, state, LCtrl
 if state = D
-g_window_z := WinExist("A")
+  g_window_z := WinExist("A")
 else
-if WinExist("ahk_id" . g_window_z)
-WinActivate
+  if WinExist("ahk_id " . g_window_z)
+  WinActivate
 return
 
 RAlt & x::
@@ -31,6 +31,17 @@ GetKeyState, state, LCtrl
 if state = D
   g_window_x := WinExist("A")
 else
-  if WinExist("ahk_id" . g_window_x)
+  if WinExist("ahk_id " . g_window_x)
   WinActivate
 return
+
+RAlt & Tab::
+WinGetClass, ActiveClass, A
+WinGet, List, List, ahk_class %ActiveClass%
+IF List = 1
+  return
+Else
+{
+  WinActivate, % "ahk_id " . List%List%
+  return
+}
