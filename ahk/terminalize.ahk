@@ -54,3 +54,17 @@ return
 ^>#p::
 SendInput, ^p
 return
+
+^/::
+SendInput, ^z
+return
+^>#/::
+SendInput, ^/
+return
+
+^+/::
+SendInput, ^y
+return
+^+>#/::
+SendInput, ^+/
+return
