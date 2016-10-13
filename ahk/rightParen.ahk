@@ -1,3 +1,4 @@
+; http://superuser.com/a/527542
 g_LastShiftKeyDownTime := 0
 g_AbortSendParen := false
 g_ShiftRepeatDetected := false
