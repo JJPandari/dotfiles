@@ -1,23 +1,49 @@
 g_window_z := 0
 g_window_x := 0
+g_is_combination := false
 
-RAlt & e::
+`; Up::
+if (!g_is_combination)
+{
+    SendInput, `;
+}
+g_is_combination := false
+return
+
+`;::
+g_is_combination := false
+return
+
++`;::
+SendInput, :
+return
+
+`; & e::
+g_is_combination := true
 WinActivate, ahk_class Emacs
 return
-RAlt & c::
+`; & c::
+g_is_combination := true
 WinActivate, ahk_class Chrome_WidgetWin_1
 return
-RAlt & t::
+`; & t::
+g_is_combination := true
 WinActivate, ahk_class mintty
 return
-RAlt & a::
+`; & a::
+g_is_combination := true
 WinActivate, ahk_class EVERYTHING
 return
-RAlt & d::
-WinActivate, ahk_exe BingDict.exe
+`; & d::
+g_is_combination := true
+WinActivate, ahk_Class YodaoMainWndClass
+return
+`; & r::
+g_is_combination := true
+WinActivate, ahk_exe Robomongo.exe
 return
 
-RAlt & z::
+`; & z::
 GetKeyState, state, LCtrl
 if state = D
   g_window_z := WinExist("A")
@@ -26,7 +52,7 @@ else
   WinActivate
 return
 
-RAlt & x::
+`; & x::
 GetKeyState, state, LCtrl
 if state = D
   g_window_x := WinExist("A")
