@@ -14,6 +14,14 @@ return
 g_is_combination := false
 return
 
+^`;::
+SendInput, ^`;
+return
+
+!`;::
+SendInput, !`;
+return
+
 +`;::
 SendInput, :
 return
