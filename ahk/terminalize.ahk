@@ -55,6 +55,13 @@ return
 SendInput, ^p
 return
 
+^w::
+SendInput, ^{Backspace}
+return
+^>#w::
+SendInput, ^w
+return
+
 ^/::
 SendInput, ^z
 return
