@@ -107,6 +107,16 @@ endif
 
 nnoremap <C-J> <C-E>
 nnoremap <C-K> <C-Y>
+nnoremap <C-A> ^
+nnoremap <C-E> $
+onoremap <C-A> ^
+onoremap <C-E> $
+vnoremap <C-A> ^
+vnoremap <C-E> $
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
+inoremap <C-F> <Right>
+inoremap <C-D> <Left>
 "set autoindent
 set shiftwidth=4
 set tabstop=4

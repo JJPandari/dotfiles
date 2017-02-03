@@ -31,13 +31,13 @@ return
 SendInput, +{Right}
 return
 
-^b::
+^d::
 SendInput, {Left}
 return
-^>#b::
-SendInput, ^b
+^>#d::
+SendInput, ^d
 return
-^+b::
+^+d::
 SendInput, +{left}
 return
 
