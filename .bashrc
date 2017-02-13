@@ -205,13 +205,16 @@
 export http_proxy=http://127.0.0.1:1080
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.bash/colors/base16-tomorrow.dark.sh"
+BASE16_SHELL="$HOME/.bash/colors/base16-solarized.light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # use english
 export LANG='en_US.UTF-8'
 # use .agignore
 alias ag='ag --path-to-agignore ~/.agignore'
+
+#disable flow control
+stty -ixon
 
 #playing with C
 alias jj='gcc practice.c -o out.exe'

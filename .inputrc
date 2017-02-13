@@ -73,4 +73,9 @@
   #Space: magic-space
 #$endif
 
+#tell readline not to rebind special chars
+#http://unix.stackexchange.com/q/343372/214305
+set bind-tty-special-chars off
 "\C-d": backward-char
+"\C-q": quoted-insert
+"\C-v": paste-from-clipboard

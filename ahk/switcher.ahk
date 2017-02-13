@@ -29,7 +29,7 @@ WinActivate, ahk_class Emacs
 return
 `; & c::
 g_is_combination := true
-WinActivate, ahk_class Chrome_WidgetWin_1
+WinActivate, ahk_exe chrome.exe
 return
 `; & t::
 g_is_combination := true
@@ -42,6 +42,10 @@ return
 `; & d::
 g_is_combination := true
 WinActivate, ahk_Class YodaoMainWndClass
+return
+`; & v::
+g_is_combination := true
+WinActivate, ahk_exe code.exe
 return
 `; & r::
 g_is_combination := true
@@ -66,9 +70,10 @@ else
   WinActivate
 return
 
-RAlt & Tab::
-WinGetClass, ActiveClass, A
-WinGet, List, List, ahk_class %ActiveClass%
+`; & Tab::
+g_is_combination := true
+WinGet, ActiveEXE, ProcessName, A
+WinGet, List, List, ahk_exe %ActiveEXE%
 IF List = 1
   return
 Else

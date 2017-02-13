@@ -117,6 +117,12 @@ inoremap <C-A> <Home>
 inoremap <C-E> <End>
 inoremap <C-F> <Right>
 inoremap <C-D> <Left>
+inoremap <C-V> <C-R>
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-F> <Right>
+cnoremap <C-D> <Left>
+cnoremap <C-V> <C-R>
 "set autoindent
 set shiftwidth=4
 set tabstop=4
