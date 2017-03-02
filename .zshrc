@@ -106,19 +106,19 @@ if ! zgen saved; then
     # theme
     zgen oh-my-zsh themes/robbyrussell
 
-    zgen load Vifon/deer
+    # zgen load Vifon/deer
 
     # save all to init script
     zgen save
 fi
 
-autoload -U deer
-zle -N deer
-bindkey -v '^H' deer
-bindkey -a '^H' deer
-typeset -Ag DEER_KEYS
-DEER_KEYS[page_down]='d'
-DEER_KEYS[page_up]='u'
+# autoload -U deer
+# zle -N deer
+# bindkey -v '^H' deer
+# bindkey -a '^H' deer
+# typeset -Ag DEER_KEYS
+# DEER_KEYS[page_down]='d'
+# DEER_KEYS[page_up]='u'
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.bash/colors/base16-solarized.light.sh"
@@ -139,6 +139,7 @@ alias du='du -h'
 #
 # Misc :)
 alias -g less='less -r'                          # raw control characters
+alias -g le='less -r'
 # alias whence='type -a'                        # where, of a sort
 alias -g grep='grep --color'                     # show differences in colour
 alias egrep='egrep --color=auto'              # show differences in colour
@@ -152,12 +153,19 @@ alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 
+# https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#common-aliases
 alias zshrc="$EDITOR ~/.zshrc"
 alias -g L='| less -r'
 alias -g H='| head'
 alias -g T='| tail'
 alias -g G='| grep --color'
+alias -g LL='2>&1 | less -r'
+alias -g CA='2>&1 | cat -A'
+alias -g NE='2> /dev/null'
+alias -g NUL='> /dev/null 2>&1'
 alias -g A='| ag --path-to-agignore ~/.agignore'
+alias -g hp='--help'
+alias res="source $HOME/.zshrc"
 
 # key bindings
 # -v: insert mode -a: normal mode
@@ -171,7 +179,11 @@ bindkey -v '^D' vi-backward-char
 bindkey -v '^Q' vi-quoted-insert
 bindkey -v '^S' history-incremental-search-forward
 bindkey -v '^R' history-incremental-search-backward
-# bindkey -v '^V' bracketed-paste
+bindkey -v '^K' kill-line
+bindkey -v '^[f' emacs-forward-word
+bindkey -v '^[d' emacs-backward-word
+bindkey -v '^[b' kill-word
+bindkey -v '^_' undo
 bindkey -a '^A' vi-beginning-of-line
 bindkey -a '^E' vi-end-of-line
 bindkey -a '/' vi-history-search-forward
