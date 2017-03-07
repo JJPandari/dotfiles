@@ -128,21 +128,13 @@ BASE16_SHELL="$HOME/.bash/colors/base16-solarized.light.sh"
 # https://github.com/xuchunyang/emacs.d/blob/master/misc/emacs.sh
 
 # open *scratch* to switch window to emacs
-open-emacs() {
-    local exepath=`which AutoHotkey`
-    # must quote exepath in case there's space in it
-    local ahkpath=$(cygpath -m '"'exepath'"' | sed 's/AutoHotkey\(\\.exe\)\?//g')
-    echo 'WinActivate, ahk_class Emacs' > $ahkpath'switch-to-emacs.ahk'
-    AutoHotkey $ahkpath'switch-to-emacs.ahk'
-}
-
 mg() {
     emacsclient -n -e '(magit-status)' > /dev/null
 }
 
 dr() {
     # adding /. prevents elisp from stripping out the last segment
-    emacsclient -n -e '(deer "'$(cygpath -m `pwd`)'/.")' > /dev/null
+    emacsclient -n -e '(deer "'$(cygpath -m `pwd`)'/.")' -e '(open-emacs-window)' > /dev/null
     open-emacs
 }
 
