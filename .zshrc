@@ -124,6 +124,33 @@ fi
 BASE16_SHELL="$HOME/.bash/colors/base16-solarized.light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
+# go to emacs with current context in terminal
+# https://github.com/xuchunyang/emacs.d/blob/master/misc/emacs.sh
+
+# open *scratch* to switch window to emacs
+open-emacs() {
+    local exepath=`which AutoHotkey`
+    # must quote exepath in case there's space in it
+    local ahkpath=$(cygpath -m '"'exepath'"' | sed 's/AutoHotkey\(\\.exe\)\?//g')
+    echo 'WinActivate, ahk_class Emacs' > $ahkpath'switch-to-emacs.ahk'
+    AutoHotkey $ahkpath'switch-to-emacs.ahk'
+}
+
+mg() {
+    emacsclient -n -e '(magit-status)' > /dev/null
+}
+
+dr() {
+    # adding /. prevents elisp from stripping out the last segment
+    emacsclient -n -e '(deer "'$(cygpath -m `pwd`)'/.")' > /dev/null
+    open-emacs
+}
+
+calc ()
+{
+    emacs -Q --batch --eval "(message \"%s\" (calc-eval \"$1\"))"
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -166,6 +193,8 @@ alias -g NUL='> /dev/null 2>&1'
 alias -g A='| ag --path-to-agignore ~/.agignore'
 alias -g hp='--help'
 alias res="source $HOME/.zshrc"
+alias v="vim"
+alias e="emacsclient -n"
 
 # key bindings
 # -v: insert mode -a: normal mode
