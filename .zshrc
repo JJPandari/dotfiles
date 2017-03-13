@@ -107,6 +107,7 @@ if ! zgen saved; then
     zgen oh-my-zsh themes/robbyrussell
 
     # zgen load Vifon/deer
+    # zgen load junegunn/fzf # install script doesn't recognize windows/cygwin
 
     # save all to init script
     zgen save
@@ -127,7 +128,6 @@ BASE16_SHELL="$HOME/.bash/colors/base16-solarized.light.sh"
 # go to emacs with current context in terminal
 # https://github.com/xuchunyang/emacs.d/blob/master/misc/emacs.sh
 
-# open *scratch* to switch window to emacs
 mg() {
     emacsclient -n -e '(magit-status)' > /dev/null
 }
@@ -135,7 +135,6 @@ mg() {
 dr() {
     # adding /. prevents elisp from stripping out the last segment
     emacsclient -n -e '(deer "'$(cygpath -m `pwd`)'/.")' -e '(open-emacs-window)' > /dev/null
-    open-emacs
 }
 
 calc ()
@@ -184,9 +183,11 @@ alias -g NE='2> /dev/null'
 alias -g NUL='> /dev/null 2>&1'
 alias -g A='| ag --path-to-agignore ~/.agignore'
 alias -g hp='--help'
+alias -g hl='--help | less -r'
 alias res="source $HOME/.zshrc"
 alias v="vim"
 alias e="emacsclient -n"
+alias no="node -p"
 
 # key bindings
 # -v: insert mode -a: normal mode
@@ -200,6 +201,7 @@ bindkey -v '^D' vi-backward-char
 bindkey -v '^Q' vi-quoted-insert
 bindkey -v '^S' history-incremental-search-forward
 bindkey -v '^R' history-incremental-search-backward
+bindkey -v '^B' delete-char
 bindkey -v '^K' kill-line
 bindkey -v '^[f' emacs-forward-word
 bindkey -v '^[d' emacs-backward-word
