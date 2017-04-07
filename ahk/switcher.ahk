@@ -31,6 +31,10 @@ return
 g_is_combination := true
 WinActivate, ahk_exe chrome.exe
 return
+`; & f::
+g_is_combination := true
+WinActivate, ahk_class MozillaWindowClass
+return
 `; & t::
 g_is_combination := true
 WinActivate, ahk_class mintty
@@ -41,7 +45,7 @@ WinActivate, ahk_class EVERYTHING
 return
 `; & d::
 g_is_combination := true
-WinActivate, ahk_Class YodaoMainWndClass
+WinActivate, ahk_exe BingDict.exe
 return
 `; & v::
 g_is_combination := true
