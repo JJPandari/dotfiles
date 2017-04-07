@@ -107,6 +107,7 @@ if ! zgen saved; then
     zgen oh-my-zsh themes/robbyrussell
 
     # zgen load Vifon/deer
+    # zgen load junegunn/fzf # install script doesn't recognize windows/cygwin
 
     # save all to init script
     zgen save
@@ -123,6 +124,23 @@ fi
 # Base16 Shell
 BASE16_SHELL="$HOME/.bash/colors/base16-solarized.light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# go to emacs with current context in terminal
+# https://github.com/xuchunyang/emacs.d/blob/master/misc/emacs.sh
+
+mg() {
+    emacsclient -n -e '(magit-status)' > /dev/null
+}
+
+dr() {
+    # adding /. prevents elisp from stripping out the last segment
+    emacsclient -n -e '(deer "'$(cygpath -m `pwd`)'/.")' -e '(open-emacs-window)' > /dev/null
+}
+
+calc ()
+{
+    emacs -Q --batch --eval "(message \"%s\" (calc-eval \"$1\"))"
+}
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -165,7 +183,11 @@ alias -g NE='2> /dev/null'
 alias -g NUL='> /dev/null 2>&1'
 alias -g A='| ag --path-to-agignore ~/.agignore'
 alias -g hp='--help'
+alias -g hl='--help | less -r'
 alias res="source $HOME/.zshrc"
+alias v="vim"
+alias e="emacsclient -n"
+alias no="node -p"
 
 # key bindings
 # -v: insert mode -a: normal mode
@@ -179,6 +201,7 @@ bindkey -v '^D' vi-backward-char
 bindkey -v '^Q' vi-quoted-insert
 bindkey -v '^S' history-incremental-search-forward
 bindkey -v '^R' history-incremental-search-backward
+bindkey -v '^B' delete-char
 bindkey -v '^K' kill-line
 bindkey -v '^[f' emacs-forward-word
 bindkey -v '^[d' emacs-backward-word

@@ -1,4 +1,4 @@
-#If !WinActive("ahk_class Emacs") and !WinActive("ahk_class mintty")
+#If !WinActive("ahk_class Emacs") and !WinActive("ahk_class mintty") and !WinActive("ahk_class MozillaWindowClass")
 #UseHook
 
 ^a::
