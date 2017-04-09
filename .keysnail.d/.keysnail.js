@@ -6,6 +6,10 @@
 //{{%PRESERVE%
 //TODO ESC not working on select
 // Put your codes here
+
+plugins.options["kkk.sites"] = ["^https?://([0-9a-zA-Z]+\\.)?github\\.com/"];
+plugins.options["bmany.default_open_type"] = "tab";
+
 //}}%PRESERVE%
 // ========================================================================= //
 
@@ -149,7 +153,7 @@ key.setViewKey(['SPC', 'f', 's'], function (ev) {
     command.focusToById("searchbar");
 }, 'Focus to the search bar', true);
 
-key.setViewKey([['SPC', 'f', 't'], ['g', 'i']], function (ev) {
+key.setViewKey([['SPC', 'f', 't'], ['SPC', 'i']], function (ev) {
     command.focusElement(command.elementsRetrieverTextarea, 0);
 }, 'Focus to the first textarea', true);
 
@@ -181,6 +185,10 @@ key.setViewKey(['SPC', 'n'], function (ev) {
 key.setViewKey(['SPC', 'q', 'q'], function (ev) {
     goQuitApplication();
 }, 'Exit Firefox', true);
+
+key.setViewKey(['SPC', 'q', 'r'], function (ev) {
+    command.restartApp();
+}, 'Restart Firefox', true);
 
 key.setViewKey(['SPC', 'j', 'o'], function (ev) {
     toJavaScriptConsole();
@@ -256,7 +264,7 @@ key.setViewKey('C-v', function (ev) {
                 goDoCommand("cmd_scrollPageDown");
             }, 'Scroll page down');
 
-key.setViewKey([['M-<'], ['g', 'g']], function (ev) {
+key.setViewKey([['M-<'], ['g']], function (ev) {
                 goDoCommand("cmd_scrollTop");
             }, 'Scroll to the top of the page', true);
 
@@ -337,6 +345,30 @@ key.setViewKey([['SPC', 'o', 'c']], function (ev, arg) {
 key.setViewKey([['SPC', 'o', 'e']], function (ev, arg) {
     ext.exec('hok-start-extended-mode', arg, ev);
 }, 'hok extended');
+
+key.setViewKey(['SPC', 'b', 'b'], function (ev, arg) {
+        ext.exec("bmany-list-all-bookmarks", arg, ev);
+}, 'bmany - List all bookmarks');
+
+key.setViewKey(['SPC', 'b', 'l'], function (ev, arg) {
+        ext.exec("bmany-list-bookmarklets", arg, ev);
+}, "bmany - List all bookmarklets");
+
+key.setViewKey(['SPC', 'b', 'k'], function (ev, arg) {
+        ext.exec("bmany-list-bookmarks-with-keyword", arg, ev);
+}, "bmany - List bookmarks with keyword");
+
+key.setViewKey(['SPC', 'b', 't'], function (ev, arg) {
+        ext.exec("bmany-list-bookmarks-with-tag", arg, ev);
+}, "bmany - List bookmarks with tag");
+
+key.setViewKey(['m'], function (ev, arg) {
+        ext.exec("scrollet-set-mark", arg, ev);
+}, "set mark");
+
+key.setViewKey(['\''], function (ev, arg) {
+        ext.exec("scrollet-jump-to-mark", arg, ev);
+}, "jump to mark");
 
 key.setEditKey('C-c', function (ev) {
     command.copyRegion(ev);
