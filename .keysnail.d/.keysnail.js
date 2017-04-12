@@ -7,8 +7,92 @@
 //TODO ESC not working on select
 // Put your codes here
 
-plugins.options["kkk.sites"] = ["^https?://([0-9a-zA-Z]+\\.)?github\\.com/"];
+plugins.options["hok.hint_keys"] = 'asdfghjklqweruiopzxcvmn';
+plugins.options["kkk.sites"] = [
+    "^https?://([0-9a-zA-Z]+\\.)?github\\.com/",
+    "^https?://emacs-china\\.org/"
+];
 plugins.options["bmany.default_open_type"] = "tab";
+
+const JJ_TAB_CURRENT = 'current';
+const JJ_TAB_NEW = 'tab';
+
+const openConfigs = [
+    {
+        keys: ['o'],
+        place: JJ_TAB_CURRENT,
+        template: '%s',
+        msg: 'open:',
+        description: 'open in current tab'
+    },
+    {
+        keys: ['O'],
+        template: '%s',
+        msg: 'open:',
+        description: 'open in new tab'
+    },
+    {
+        keys: [['SPC', 'SPC']],
+        template: 'http://cn.bing.com/search?q=%s',
+        msg: 'Bing:',
+        description: 'search with bing'
+    },
+    {
+        keys: ['SPC', 'g', 'g'],
+        template: 'http://www.google.com/search?q=%s',
+        msg: 'Google:',
+        description: 'search with google'
+    },
+    {
+        keys: ['SPC', 'd', 'd', 'g'],
+        template: 'http://duckduckgo.com/?q=%s',
+        msg: 'DuckDuckGo:',
+        description: 'search with DuckDuckGo'
+    },
+    {
+        keys: ['SPC', 's', 's'],
+        template: 'http://cn.bing.com/search?q=%s+site:stackoverflow.com',
+        msg: 'search stackoverflow:',
+        description: 'search stackoverflow with bing'
+    },
+    {
+        keys: ['SPC', 's', 'm'],
+        template: 'http://cn.bing.com/search?q=%s+site:developer.mozilla.org',
+        msg: 'search mdn:',
+        description: 'search mdn with bing'
+    },
+    {
+        keys: ['SPC', 's', 'e'],
+        template: 'http://cn.bing.com/search?q=%s+site:emacs.stackexchange.com',
+        msg: 'search emacs stackexchange:',
+        description: 'search emacs stackexchange with bing'
+    },
+    {
+        keys: ['SPC', 's', 'p'],
+        template: 'http://cn.bing.com/search?q=%s+site:php.net',
+        msg: 'search php.net:',
+        description: 'search php.net with bing'
+    },
+    {
+        keys: ['SPC', 's', 'g'],
+        template: 'https://github.com/search?q=%s',
+        msg: 'search github:',
+        description: 'search github'
+    }
+];
+
+openConfigs.forEach(conf => {
+    key.setViewKey(conf.keys, function (ev, arg) {
+        prompt.read(conf.msg, function (input) {
+            if (input)
+                openUILinkIn(
+                    conf.template.replace('%s', input.replace(/\s/g, '+')),
+                    conf.place || JJ_TAB_NEW
+                );
+            // use msg as history namespace
+        }, null, null, null, 0, conf.msg);
+    }, conf.description);
+});
 
 //}}%PRESERVE%
 // ========================================================================= //
@@ -51,6 +135,12 @@ hook.setHook('KeyBoardQuit', function (aEvent) {
     if (KeySnail.windowType === "navigator:browser" && !marked) {
         key.generateKey(aEvent.originalTarget, KeyEvent.DOM_VK_ESCAPE, true);
     }
+
+    // always close prompt
+    prompt.finish(true);
+
+    // always blur
+    window.content.document.activeElement.blur();
 });
 
 
@@ -141,7 +231,7 @@ key.setGlobalKey('C-M-h', function (ev) {
                 getBrowser().mTabContainer.advanceSelectedTab(-1, true);
             }, 'Select previous tab');
 
-key.setViewKey(['SPC', 'f', 'e', 'R'], function (ev) {
+key.setViewKey(['SPC', 'f', 'e', 'r'], function (ev) {
     userscript.reload();
 }, 'Reload the initialization file', true);
 
@@ -226,19 +316,19 @@ key.setViewKey('r', function (ev) {
     BrowserReload();
 }, 'Reload the page', true);
 
-key.setViewKey([['C-n'], ['j']], function (ev) {
+key.setViewKey([['j']], function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_DOWN, true);
             }, 'Scroll line down');
 
-key.setViewKey([['C-p'], ['k']], function (ev) {
+key.setViewKey([['k']], function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_UP, true);
             }, 'Scroll line up');
 
-key.setViewKey([['C-f'], ['l']], function (ev) {
+key.setViewKey([['l']], function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RIGHT, true);
             }, 'Scroll right');
 
-key.setViewKey([['C-d'], ['h']], function (ev) {
+key.setViewKey([['h']], function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_LEFT, true);
             }, 'Scroll left');
 
@@ -256,7 +346,7 @@ key.setViewKey('d', function (ev) {
     }
 }, 'Scroll half page down');
 
-key.setViewKey([['M-v'], ['b']], function (ev) {
+key.setViewKey([['M-v']], function (ev) {
                 goDoCommand("cmd_scrollPageUp");
             }, 'Scroll page up');
 
@@ -330,37 +420,41 @@ key.setViewKey(['SPC', 'w', 'w'], function (ev, arg) {
     ext.exec('tanything', arg, ev);
 }, 'view all tabs');
 
-key.setViewKey([['f'], ['SPC', 'o', 'f']], function (ev, arg) {
+key.setViewKey([['f'], ['SPC', 'o', 'c']], function (ev, arg) {
     ext.exec('hok-start-foreground-mode', arg, ev);
-}, 'hok in foreground');
+}, 'hok in current tab');
 
-key.setViewKey([['F'], ['SPC', 'o', 'b']], function (ev, arg) {
+key.setViewKey([['F'], ['SPC', 'o', 'n']], function (ev, arg) {
     ext.exec('hok-start-background-mode', arg, ev);
-}, 'hok in background');
+}, 'hok in new tab');
 
-key.setViewKey([['SPC', 'o', 'c']], function (ev, arg) {
+key.setViewKey([['SPC', 'm'], ['SPC', 'o', 'm']], function (ev, arg) {
     ext.exec('hok-start-continuous-mode', arg, ev);
-}, 'hok continuously');
+}, 'hok multiple');
 
 key.setViewKey([['SPC', 'o', 'e']], function (ev, arg) {
     ext.exec('hok-start-extended-mode', arg, ev);
 }, 'hok extended');
 
-key.setViewKey(['SPC', 'b', 'b'], function (ev, arg) {
+key.setViewKey(['SPC', 'b'], function (ev, arg) {
         ext.exec("bmany-list-all-bookmarks", arg, ev);
 }, 'bmany - List all bookmarks');
 
-key.setViewKey(['SPC', 'b', 'l'], function (ev, arg) {
-        ext.exec("bmany-list-bookmarklets", arg, ev);
-}, "bmany - List all bookmarklets");
+// key.setViewKey(['SPC', 'b', 'l'], function (ev, arg) {
+//         ext.exec("bmany-list-bookmarklets", arg, ev);
+// }, "bmany - List all bookmarklets");
 
-key.setViewKey(['SPC', 'b', 'k'], function (ev, arg) {
-        ext.exec("bmany-list-bookmarks-with-keyword", arg, ev);
-}, "bmany - List bookmarks with keyword");
+// key.setViewKey(['SPC', 'b', 'k'], function (ev, arg) {
+//         ext.exec("bmany-list-bookmarks-with-keyword", arg, ev);
+// }, "bmany - List bookmarks with keyword");
 
-key.setViewKey(['SPC', 'b', 't'], function (ev, arg) {
-        ext.exec("bmany-list-bookmarks-with-tag", arg, ev);
-}, "bmany - List bookmarks with tag");
+// key.setViewKey(['SPC', 'b', 't'], function (ev, arg) {
+//         ext.exec("bmany-list-bookmarks-with-tag", arg, ev);
+// }, "bmany - List bookmarks with tag");
+
+key.setViewKey(['SPC', 'h'], function (ev, arg) {
+    ext.exec("history-show", arg, ev);
+}, "list history");
 
 key.setViewKey(['m'], function (ev, arg) {
         ext.exec("scrollet-set-mark", arg, ev);
@@ -369,6 +463,13 @@ key.setViewKey(['m'], function (ev, arg) {
 key.setViewKey(['\''], function (ev, arg) {
         ext.exec("scrollet-jump-to-mark", arg, ev);
 }, "jump to mark");
+
+key.setViewKey(['SPC', 'd', 't'], function (ev, arg) {
+    openUILinkIn(
+        window.content.location.href,
+        JJ_TAB_NEW
+    );
+}, "duplicate tab");
 
 key.setEditKey('C-c', function (ev) {
     command.copyRegion(ev);
