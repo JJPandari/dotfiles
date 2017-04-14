@@ -1,0 +1,15 @@
+# Insert your preferred key mappings here.
+map ' Marks.activateGotoMode
+map K goBack
+map J goForward
+map H previousTab
+map L nextTab
+map < moveTabLeft
+map > moveTabRight
+map g scrollTop
+map <space>i focusInput
+map <space>u goUp
+map <space>U goToRoot
+map <space>e Vomnibar.activateEditUrl
+map <space>E Vomnibar.activateEditUrlInNewTab
+map <space>s toggleViewSource
