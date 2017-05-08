@@ -190,6 +190,7 @@ alias res="source $HOME/.zshrc"
 alias v="vim"
 alias e="emacsclient -n"
 alias no="node -p"
+alias odir="explorer ."
 
 # key bindings
 # -v: insert mode -a: normal mode
