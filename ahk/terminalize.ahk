@@ -75,3 +75,24 @@ return
 ^+>#/::
 SendInput, ^+/
 return
+
+!f::
+SendInput, ^{Right}
+return
+!>#f::
+SendInput, !f
+return
+
+!d::
+SendInput, ^{Left}
+return
+!>#d::
+SendInput, !d
+return
+
+!b::
+SendInput, ^{Del}
+return
+!>#b::
+SendInput, !b
+return
