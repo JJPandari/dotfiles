@@ -90,6 +90,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/wd
     # zgen oh-my-zsh plugins/sudo
     # zgen oh-my-zsh plugins/command-not-found
+    zgen load hlissner/zsh-autopair
     zgen load zsh-users/zsh-syntax-highlighting
     # zgen load /path/to/super-secret-private-plugin
 
