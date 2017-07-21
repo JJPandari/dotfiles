@@ -62,6 +62,13 @@ return
 SendInput, ^w
 return
 
+^b::
+SendInput, {Del}
+return
+^>#b::
+SendInput, ^b
+return
+
 ^/::
 SendInput, ^z
 return
