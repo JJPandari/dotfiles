@@ -115,6 +115,19 @@ return
 SendInput, {RWin Down}b{RWin Up}
 return
 
+^g::
+SendInput, {Esc}
+return
+>#g::
+SendInput, ^g
+return
+^>#g::
+SendInput, ^g
+return
++>#g::
+SendInput, +^g
+return
+
 ; ===== M-* movements =====
 
 !f::
