@@ -123,7 +123,7 @@ fi
 # DEER_KEYS[page_up]='u'
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.bash/colors/base16-solarized.light.sh"
+BASE16_SHELL="$HOME/.bash/colors/base16-solarized.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # go to emacs with current context in terminal
