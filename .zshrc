@@ -217,7 +217,7 @@ bindkey -a '/' vi-history-search-forward
 bindkey -a '?' vi-history-search-backward
 
 # shadow socks
-export http_proxy=http://127.0.0.1:1080
+# export http_proxy=http://127.0.0.1:1080
 
 # disable flow control
 stty -ixon
