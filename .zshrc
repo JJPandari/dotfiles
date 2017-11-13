@@ -123,7 +123,7 @@ fi
 # DEER_KEYS[page_up]='u'
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.bash/colors/base16-solarized.dark.sh"
+BASE16_SHELL="$HOME/.bash/colors/base16-solarized.light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # go to emacs with current context in terminal
@@ -184,12 +184,12 @@ alias -g LL='2>&1 | less -r'
 alias -g CA='2>&1 | cat -A'
 alias -g NE='2> /dev/null'
 alias -g NUL='> /dev/null 2>&1'
-alias -g A='| ag --path-to-agignore ~/.agignore'
+alias -g A='| ag -p ~/.agignore'
 alias -g hp='--help'
 alias -g hl='--help | less -r'
 alias res="source $HOME/.zshrc"
-alias v="vim"
-alias e="emacsclient -n"
+alias -g v="vim"
+alias -g e="emacsclient -n"
 alias no="node -p"
 alias odir="explorer ."
 

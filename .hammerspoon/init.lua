@@ -10,8 +10,8 @@ hs.hotkey.bind({"control", "shift", "option", "command"}, "c", function()
     hs.application.launchOrFocus("Google Chrome")
 end)
 
-hs.hotkey.bind({"control", "shift", "option", "command"}, "t", function()
-    hs.application.launchOrFocus("/Applications/iTerm.app/Contents/MacOS/iTerm2")
+hs.hotkey.bind({"control", "shift", "option", "command"}, "f", function()
+    hs.application.launchOrFocus("iTerm")
 -- /Applications/iTerm.app/Contents/MacOS/iTerm2
 end)
 
@@ -21,6 +21,10 @@ end)
 
 hs.hotkey.bind({"control", "shift", "option", "command"}, "d", function()
     hs.application.launchOrFocus("Dictionary")
+end)
+
+hs.hotkey.bind({"control", "shift", "option", "command"}, "q", function()
+    hs.application.launchOrFocus("钉钉")
 end)
 
 -- privatepath = hs.fs.pathToAbsolute(hs.configdir .. '/private')
