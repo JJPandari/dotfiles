@@ -92,7 +92,11 @@ if ! zgen saved; then
     # zgen oh-my-zsh plugins/command-not-found
     zgen load hlissner/zsh-autopair
     zgen load zsh-users/zsh-syntax-highlighting
+
     # zgen load /path/to/super-secret-private-plugin
+    # go to project root
+    # https://github.com/lululau/oh-my-zsh/blob/master/plugins/project-root/project-root.plugin.zsh
+    zgen load $HOME/.zsh/project-root.plugin.zsh
 
     # bulk load
 #     zgen loadall <<EOPLUGINS
@@ -216,7 +220,10 @@ bindkey -a '^E' vi-end-of-line
 bindkey -a '/' vi-history-search-forward
 bindkey -a '?' vi-history-search-backward
 
-# shadow socks
+bindkey -v '^[r' project_root_widget
+bindkey -a '^[r' project_root_widget
+
+# shadowsocks
 # export http_proxy=http://127.0.0.1:1080
 
 # disable flow control
