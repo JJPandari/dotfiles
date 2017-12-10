@@ -92,7 +92,11 @@ if ! zgen saved; then
     # zgen oh-my-zsh plugins/command-not-found
     zgen load hlissner/zsh-autopair
     zgen load zsh-users/zsh-syntax-highlighting
+
     # zgen load /path/to/super-secret-private-plugin
+    # go to project root
+    # https://github.com/lululau/oh-my-zsh/blob/master/plugins/project-root/project-root.plugin.zsh
+    zgen load $HOME/.zsh/project-root.plugin.zsh
 
     # bulk load
 #     zgen loadall <<EOPLUGINS
@@ -123,7 +127,7 @@ fi
 # DEER_KEYS[page_up]='u'
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.bash/colors/base16-solarized.dark.sh"
+BASE16_SHELL="$HOME/.bash/colors/base16-solarized.light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # go to emacs with current context in terminal
@@ -165,14 +169,14 @@ alias egrep='egrep --color=auto'              # show differences in colour
 alias fgrep='fgrep --color=auto'              # show differences in colour
 #
 # Some shortcuts for different directory listings
-alias ls='ls -hF --color=tty'                 # classify files in colour
+alias ls='ls -hF'                 # classify files in colour
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 # use .agignore
-alias ag='ag --path-to-agignore ~/.agignore'
+alias ag='ag -p ~/.agignore'
 
 # https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#common-aliases
 alias zshrc="$EDITOR ~/.zshrc"
@@ -184,12 +188,12 @@ alias -g LL='2>&1 | less -r'
 alias -g CA='2>&1 | cat -A'
 alias -g NE='2> /dev/null'
 alias -g NUL='> /dev/null 2>&1'
-alias -g A='| ag --path-to-agignore ~/.agignore'
+alias -g A='| ag -p ~/.agignore'
 alias -g hp='--help'
 alias -g hl='--help | less -r'
 alias res="source $HOME/.zshrc"
-alias v="vim"
-alias e="emacsclient -n"
+alias -g v="vim"
+alias -g e="emacsclient -n"
 alias no="node -p"
 alias odir="explorer ."
 
@@ -216,8 +220,11 @@ bindkey -a '^E' vi-end-of-line
 bindkey -a '/' vi-history-search-forward
 bindkey -a '?' vi-history-search-backward
 
-# shadow socks
-export http_proxy=http://127.0.0.1:1080
+bindkey -v '^[r' project_root_widget
+bindkey -a '^[r' project_root_widget
+
+# shadowsocks
+# export http_proxy=http://127.0.0.1:1080
 
 # disable flow control
 stty -ixon
