@@ -3,6 +3,15 @@ module.exports = {
     'plugin:vue/recommended',
     'standard'
   ],
+  env: {
+    'browser': true,
+    'node': true
+ },
+  globals: {
+    $: true,
+    jQuery: true,
+    jquery: true
+ },
   rules: {
     // override/add rules settings here, such as:
     // 'vue/no-unused-vars': 'error'
@@ -17,7 +26,8 @@ module.exports = {
     indent: ['error', 2],
     'space-before-function-paren': 'warn',
     'keyword-spacing': 'warn',
-    'semi-spacing': 'off'
+    'semi-spacing': 'off',
+    'space-infix-ops': 'off'
     // 'keyword-spacing': ['error', { overrides: {
     //   if: { after: false },
     //   for: { after: false },
