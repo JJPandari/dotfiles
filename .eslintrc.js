@@ -1,8 +1,19 @@
 module.exports = {
+  parser: "babel-eslint",
   extends: [
-    'plugin:vue/recommended',
-    'standard'
+    'standard',
+    // 'plugin:vue/recommended'
+    'plugin:react/recommended'
   ],
+  env: {
+    'browser': true,
+    'node': true
+ },
+  globals: {
+    $: true,
+    jQuery: true,
+    jquery: true
+ },
   rules: {
     // override/add rules settings here, such as:
     // 'vue/no-unused-vars': 'error'
@@ -15,9 +26,10 @@ module.exports = {
 
     eqeqeq: 'off',
     indent: ['error', 2],
-    'space-before-function-paren': 'warn',
+    'space-before-function-paren': 'off',
     'keyword-spacing': 'warn',
-    'semi-spacing': 'off'
+    'semi-spacing': 'off',
+    'space-infix-ops': 'off'
     // 'keyword-spacing': ['error', { overrides: {
     //   if: { after: false },
     //   for: { after: false },
