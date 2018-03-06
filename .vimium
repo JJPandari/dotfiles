@@ -1,30 +1,26 @@
-# Insert your preferred key mappings here.
-#unmap gg
-#unmap gu
-#unmap gU
-#unmap gi
-#unmap gf
-#unmap gF
-#unmap ge
-#unmap gE
-#unmap gt
-#unmap gT
-#unmap g0
-#unmap g$
-#unmap gs
-
-map ' Marks.activateGotoMode
-map K goBack
-map J goForward
-map H previousTab
-map L nextTab
-map < moveTabLeft
-map > moveTabRight
-#map g scrollTop
-map <space>i focusInput
-map <space>u goUp
-map <space>U goToRoot
-map <space>e Vomnibar.activateEditUrl
-map <space>E Vomnibar.activateEditUrlInNewTab
-map <space>s toggleViewSource
-map <space>f LinkHints.activateModeWithQueue
+{
+  "settingsVersion": "1.63",
+  "exclusionRules": [
+    {
+      "pattern": "https?://mail.google.com/*",
+      "passKeys": ""
+    }
+  ],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "# Insert your preferred key mappings here.\n# Insert your preferred key mappings here.\n#unmap gg\n#unmap gu\n#unmap gU\n#unmap gi\n#unmap gf\n#unmap gF\n#unmap ge\n#unmap gE\n#unmap gt\n#unmap gT\n#unmap g0\n#unmap g$\n#unmap gs\n\nmap ' Marks.activateGotoMode\nmap K goBack\nmap J goForward\nmap H previousTab\nmap L nextTab\nmap < moveTabLeft\nmap > moveTabRight\nmap q removeTab\nmap x restoreTab\n#map g scrollTop\nmap <space>i focusInput\nmap <space>u goUp\nmap <space>U goToRoot\nmap <space>e Vomnibar.activateEditUrl\nmap <space>E Vomnibar.activateEditUrlInNewTab\nmap e Vomnibar.activateEditUrl\nmap E Vomnibar.activateEditUrlInNewTab\nmap <space>s toggleViewSource\nmap <space>f LinkHints.activateModeWithQueue",
+  "linkHintCharacters": "sadfjklewcmpgh",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "about:newtab",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>,下一页,下页",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<,上一页,上页",
+  "regexFindMode": false,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 60,
+  "smoothScroll": true,
+  "grabBackFocus": true,
+  "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\n g: https://www.google.com/search?q=%s Google\n# l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...\n# y: https://www.youtube.com/results?search_query=%s Youtube\n# gm: https://www.google.com/maps?q=%s Google maps\n b: https://www.bing.com/search?q=%s Bing\n d: https://duckduckgo.com/?q=%s DuckDuckGo\n# az: https://www.amazon.com/s/?field-keywords=%s Amazon\n# qw: https://www.qwant.com/?q=%s Qwant",
+  "searchUrl": "https://duckduckgo.com/?q=",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+}

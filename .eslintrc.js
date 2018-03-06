@@ -1,7 +1,9 @@
 module.exports = {
+  parser: "babel-eslint",
   extends: [
-    'plugin:vue/recommended',
-    'standard'
+    'standard',
+    // 'plugin:vue/recommended'
+    'plugin:react/recommended'
   ],
   env: {
     'browser': true,
@@ -24,7 +26,7 @@ module.exports = {
 
     eqeqeq: 'off',
     indent: ['error', 2],
-    'space-before-function-paren': 'warn',
+    'space-before-function-paren': 'off',
     'keyword-spacing': 'warn',
     'semi-spacing': 'off',
     'space-infix-ops': 'off'
