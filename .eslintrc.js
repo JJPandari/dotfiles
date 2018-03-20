@@ -29,11 +29,13 @@ module.exports = {
     'space-before-function-paren': 'off',
     'keyword-spacing': 'warn',
     'semi-spacing': 'off',
-    'space-infix-ops': 'off'
+    'space-infix-ops': 'off',
     // 'keyword-spacing': ['error', { overrides: {
     //   if: { after: false },
     //   for: { after: false },
     //   while: { after: false }
     // } }]
+
+    'react/prop-types': 'off'
   }
 }
