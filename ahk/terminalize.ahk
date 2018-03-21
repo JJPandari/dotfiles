@@ -1,4 +1,4 @@
-#If !WinActive("ahk_class Emacs") and !WinActive("ahk_class mintty") and !WinActive("ahk_class MozillaWindowClass") and !WinActive("ahk_exe aces.exe")
+#If !WinActive("ahk_class Emacs") and !WinActive("ahk_class mintty") and !WinActive("ahk_class MozillaWindowClass") and !WinActive("ahk_exe aces.exe") and !WinActive("ahk_exe KFGame.exe")
 #UseHook
 
 ; ===== C-* movements =====
