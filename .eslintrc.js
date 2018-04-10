@@ -30,6 +30,7 @@ module.exports = {
     'keyword-spacing': 'warn',
     'semi-spacing': 'off',
     'space-infix-ops': 'off',
+    'camelcase': 'warn',
     // 'keyword-spacing': ['error', { overrides: {
     //   if: { after: false },
     //   for: { after: false },
