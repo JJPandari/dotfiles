@@ -2,32 +2,11 @@
 -- hs.hints.showTitleThresh = 0
 -- hs.window.animationDuration = 0
 
-hs.hotkey.bind({"shift", "option", "command"}, "3", function()
-    hs.application.launchOrFocus("Emacs")
-end)
-
-hs.hotkey.bind({"shift", "option", "command"}, "2", function()
-    hs.application.launchOrFocus("Google Chrome")
-end)
-
-hs.hotkey.bind({"shift", "option", "command"}, "4", function()
-    hs.application.launchOrFocus("iTerm")
--- /Applications/iTerm.app/Contents/MacOS/iTerm2
-end)
-
-hs.hotkey.bind({"shift", "option", "command"}, "6", function()
-    hs.application.launchOrFocus("Finder")
-end)
-
-hs.hotkey.bind({"shift", "option", "command"}, "5", function()
-    hs.application.launchOrFocus("DingTalk")
-end)
-
 hs.hotkey.bind({"shift", "option", "command"}, "e", function()
     hs.application.launchOrFocus("Emacs")
 end)
 
-hs.hotkey.bind({"shift", "option", "command"}, "c", function()
+hs.hotkey.bind({"shift", "option", "command"}, "f", function()
     hs.application.launchOrFocus("Google Chrome")
 end)
 
