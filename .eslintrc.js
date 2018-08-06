@@ -1,9 +1,11 @@
 module.exports = {
-  parser: "babel-eslint",
+  parserOptions: {
+    parser: "babel-eslint"
+  },
   extends: [
     'standard',
-    // 'plugin:vue/recommended'
-    'plugin:react/recommended'
+    'plugin:vue/recommended'
+    // 'plugin:react/recommended'
   ],
   env: {
     'browser': true,
@@ -30,12 +32,16 @@ module.exports = {
     'keyword-spacing': 'warn',
     'semi-spacing': 'off',
     'space-infix-ops': 'off',
-    'camelcase': 'warn',
+    'camelcase': 'off',
     // 'keyword-spacing': ['error', { overrides: {
     //   if: { after: false },
     //   for: { after: false },
     //   while: { after: false }
     // } }]
+
+    'vue/max-attributes-per-line': 'off',
+    'vue/attributes-order': 'off',
+    'vue/html-self-closing': 'off',
 
     'react/prop-types': 'off'
   }

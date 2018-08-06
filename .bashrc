@@ -219,3 +219,8 @@ stty -ixon
 #playing with C
 alias jj='gcc practice.c -o out.exe'
 alias out='./out'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

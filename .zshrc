@@ -75,7 +75,7 @@ export EDITOR='vim'
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 source "${HOME}/.zgen/zgen.zsh"
 # if the init scipt doesn't exist
@@ -111,23 +111,28 @@ if ! zgen saved; then
     # theme
     zgen oh-my-zsh themes/robbyrussell
 
-    # zgen load Vifon/deer
+    zgen load chriskempson/base16-shell
+    zgen load Vifon/deer
     # zgen load junegunn/fzf # install script doesn't recognize windows/cygwin
+    # ~/.zgen/junegunn/fzf-master/install
 
     # save all to init script
     zgen save
 fi
 
-# autoload -U deer
-# zle -N deer
-# bindkey -v '^H' deer
-# bindkey -a '^H' deer
-# typeset -Ag DEER_KEYS
-# DEER_KEYS[page_down]='d'
-# DEER_KEYS[page_up]='u'
+autoload -U deer
+zle -N deer
+# bindkey '\ek' deer
+bindkey -v '^J' deer
+bindkey -a '^J' deer
+typeset -Ag DEER_KEYS
+DEER_KEYS[page_down]='d'
+DEER_KEYS[page_up]='u'
+
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.bash/colors/base16-solarized.light.sh"
+BASE16_SHELL="$HOME/.zgen/chriskempson/base16-shell-master/scripts/base16-solarized-light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # go to emacs with current context in terminal
@@ -232,3 +237,10 @@ stty -ixon
 # playing with C
 alias jj='gcc practice.c -o out.exe'
 alias out='./out'
+
+# auto added by install scripts:
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

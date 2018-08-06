@@ -20,8 +20,69 @@ hs.hotkey.bind({"shift", "option", "command"}, "a", function()
 end)
 
 hs.hotkey.bind({"shift", "option", "command"}, "q", function()
-    hs.application.launchOrFocus("DingTalk")
+    hs.application.launchOrFocus("企业微信")
 end)
+
+hs.hotkey.bind({"shift", "option", "command"}, "space", function()
+    if hs.window.focusedWindow():application():name() == "Emacs" then
+      hs.application.launchOrFocus("Google Chrome")
+    else
+      hs.application.launchOrFocus("Emacs")
+    end
+end)
+
+local function Chinese()
+  hs.keycodes.currentSourceID("com.googlecode.rimeime.inputmethod.Squirrel.Rime")
+end
+
+local function English()
+  hs.keycodes.currentSourceID("com.apple.keylayout.ABC")
+end
+
+local function set_app_input_method(app_name, set_input_method_function, event)
+  event = event or hs.window.filter.windowFocused
+
+  hs.window.filter.new(app_name)
+    :subscribe(event, function()
+                 set_input_method_function()
+              end)
+end
+
+set_app_input_method('Hammerspoon', English, hs.window.filter.windowCreated)
+set_app_input_method('Spotlight', English, hs.window.filter.windowCreated)
+set_app_input_method('Alfred', English, hs.window.filter.windowCreated)
+set_app_input_method('微信', Chinese)
+set_app_input_method('企业微信', Chinese)
+set_app_input_method('Google Chrome', English)
+set_app_input_method('iTerm2', English)
+set_app_input_method('Emacs', English)
+
+-- hs.hotkey.bind({'ctrl', 'cmd'}, ".", function()
+-- 		  hs.alert.show("App path:        "
+-- 				..hs.window.focusedWindow():application():path()
+-- 				.."\n"
+-- 				.."App name:      "
+-- 				..hs.window.focusedWindow():application():name()
+-- 				.."\n"
+-- 				.."IM source id:  "
+-- 				..hs.keycodes.currentSourceID())
+-- end)
+
+-- switcher = hs.window.switcher.new(
+--    hs.window.filter.new()
+--       :setAppFilter('Emacs', {allowRoles = '*', allowTitles = 1}), -- make emacs window show in switcher list
+--    {
+--       showTitles = false,		-- don't show window title
+--       thumbnailSize = 200,		-- window thumbnail size
+--       showSelectedThumbnail = false,	-- don't show bigger thumbnail
+--       backgroundColor = {0, 0, 0, 0.8}, -- background color
+--       highlightColor = {0.3, 0.3, 0.3, 0.8}, -- selected color
+--    }
+-- )
+
+-- hs.hotkey.bind("alt", "tab", function() switcher:next() end)
+-- hs.hotkey.bind("alt-shift", "tab", function() switcher:previous() end)
+
 
 -- privatepath = hs.fs.pathToAbsolute(hs.configdir .. '/private')
 -- if not privatepath then

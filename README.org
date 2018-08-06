@@ -1,5 +1,5 @@
 ** currently present file sets
-*** dotfiles for cygwin
+*** dotfiles
 *** ahk scripts
 ** dump cygwin installed packages and install with the dumped list
   http://blag.nullteilerfrei.de/2014/01/31/import-and-export-cygwin-list-of-installed-packages
