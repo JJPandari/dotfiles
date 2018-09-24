@@ -25,6 +25,7 @@ module.exports = {
     semi: 'off',
     "no-fallthrough": 'off',
     "no-floating-decimal": 'off',
+    "no-mixed-operators": 'warn',
 
     eqeqeq: 'off',
     indent: ['error', 2],
