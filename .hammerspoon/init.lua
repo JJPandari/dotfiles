@@ -101,6 +101,15 @@ set_app_input_method('Google Chrome', English)
 set_app_input_method('iTerm2', English)
 set_app_input_method('Emacs', English)
 
+hs.hotkey.bind(hyper, 'x', function()
+                 hs.window.focusedWindow():moveOneScreenEast()
+end)
+
+hs.hotkey.bind(hyper, 'z', function()
+                 hs.window.focusedWindow():moveOneScreenWest()
+end)
+
+--[[
 -- Handle cursor focus and application's screen manage.
 function applicationWatcher(appName, eventType, appObject)
   -- Move cursor to center of application when application activated.
@@ -116,6 +125,7 @@ end
 
 appWatcher = hs.application.watcher.new(applicationWatcher)
 appWatcher:start()
+]]
 
 -- vimium-like hints for windows
 hs.hotkey.bind(hyper, "s", function()

@@ -90,7 +90,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/wd
     # zgen oh-my-zsh plugins/sudo
     # zgen oh-my-zsh plugins/command-not-found
-    zgen load hlissner/zsh-autopair
+    zgen load hlissner/zsh-autopair autopair.zsh
     zgen load zsh-users/zsh-syntax-highlighting
 
     # zgen load /path/to/super-secret-private-plugin
@@ -123,8 +123,8 @@ fi
 autoload -U deer
 zle -N deer
 # bindkey '\ek' deer
-bindkey -v '^J' deer
-bindkey -a '^J' deer
+bindkey -v '^[j' deer
+bindkey -a '^[j' deer
 typeset -Ag DEER_KEYS
 DEER_KEYS[page_down]='d'
 DEER_KEYS[page_up]='u'

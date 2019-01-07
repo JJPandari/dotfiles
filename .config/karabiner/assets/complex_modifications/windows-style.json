@@ -196,7 +196,7 @@
           },
           "to": [
             {
-              "key_code": "s",
+              "key_code": "f",
               "modifiers": [
                 "command"
               ]
