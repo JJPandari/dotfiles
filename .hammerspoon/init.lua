@@ -77,7 +77,7 @@ end
 
 -- app default input methods
 function Chinese()
-  hs.keycodes.currentSourceID("com.googlecode.rimeime.inputmethod.Squirrel.Rime")
+  hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Rime")
 end
 
 function English()
@@ -108,6 +108,22 @@ end)
 hs.hotkey.bind(hyper, 'z', function()
                  hs.window.focusedWindow():moveOneScreenWest()
 end)
+
+--[[
+hs.hotkey.bind({'ctrl', 'cmd'}, ".", function()
+		  hs.alert.show("App path:        "
+				..hs.window.focusedWindow():application():path()
+				.."\n"
+				.."App name:      "
+				..hs.window.focusedWindow():application():name()
+				.."\n"
+				.."App ID:      "
+				..hs.window.focusedWindow():application():bundleID()
+				.."\n"
+				.."IM source id:  "
+				..hs.keycodes.currentSourceID())
+   end)
+]]
 
 --[[
 -- Handle cursor focus and application's screen manage.

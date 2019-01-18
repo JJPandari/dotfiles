@@ -9,6 +9,41 @@ patch:
     - schema: wubi_pinyin
     # - schema: emoji
 
+  punctuator/half_shape:
+    ' ' : { commit: ' ' }
+    ',' : { commit: ， }
+    '.' : { commit: 。 }
+    '<' : '《'
+    '>' : '》'
+    '/' : [ '、', '/' ]
+    '?' : { commit: ？ }
+    ';' : { commit: ； }
+    ':' : { commit: ： }
+    '''' : { pair: [ '‘', '’' ] }
+    '"' : { pair: [ '“', '”' ] }
+    '\' : [ '、', '\' ]
+    '|' : '|'
+    '`' : [ '`', ・ ]
+    '~' : ～
+    '!' : { commit: ！ }
+    '@' : '@'
+    '#' : '＃'
+    '%' : [ ％, '°', '℃' ]
+    '$' : [ ￥, '$', '€', '£', '¥', '¢', '¤' ]
+    '^' : { commit: …… }
+    '&' : ＆
+    '*' : '*'
+    '(' : （
+    ')' : ）
+    '-' : '-'
+    '_' : '_'
+    '+' : +
+    '=' : ＝
+    '[' : [ 「, 【, 〔, ［ ]
+    ']' : [ 」, 】, 〕, ］ ]
+    '{' : [ 『, 〖, ｛ ]
+    '}' : [ 』, 〗, ｝ ]
+
   key_binder:
     bindings:
       # Emacs style
@@ -47,5 +82,13 @@ patch:
       - { when: always, accept: Shift+space, toggle: full_shape }
       - { when: always, accept: Control+period, toggle: ascii_punct }
 
-  menu:
-    page_size: 5
+  editor:
+    bindings:
+      # TODO not work
+      Delete: delete_candidate
+
+  menu/page_size: 5
+
+  # enable chinese input
+  # TODO not work
+  app_options/org.gnu.Emacs: {}
