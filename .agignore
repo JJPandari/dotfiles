@@ -4,3 +4,4 @@ TAGS
 bootstrap*
 logs
 *~
+*.min.*
