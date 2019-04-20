@@ -1,0 +1,16 @@
+BoldAsFont=-1
+Font=DejaVu Sans Mono
+FontHeight=14
+Transparency=off
+Columns=172
+Rows=46
+MiddleClickAction=extend
+RightClickAction=paste
+Term=xterm-256color
+Locale=en_US
+Charset=UTF-8
+CursorType=block
+ClicksTargetApp=no
+CtrlShiftShortcuts=yes
+ThemeFile=base16-solarized-light.minttyrc
+Window=maximized

@@ -1,87 +1,33 @@
-g_window_z := 0
-g_window_x := 0
-g_is_combination := false
-
-`; Up::
-if (!g_is_combination)
-{
-    SendInput, `;
-}
-g_is_combination := false
++!#e::
+WinActivate, ahk_exe XWin_MobaX.exe
 return
-
-`;::
-g_is_combination := false
-return
-
-~*^`;::
-return
-
-~*!`;::
-return
-
-~*+`;::
-return
-
-`; & e::
-g_is_combination := true
-WinActivate, ahk_class Emacs
-return
-`; & c::
-g_is_combination := true
++!#f::
 WinActivate, ahk_exe chrome.exe
 return
-`; & f::
-g_is_combination := true
-WinActivate, ahk_class MozillaWindowClass
-return
-`; & t::
-g_is_combination := true
++!#t::
 WinActivate, ahk_class mintty
 return
-`; & a::
-g_is_combination := true
++!#a::
 WinActivate, ahk_class EVERYTHING
 return
-`; & d::
-g_is_combination := true
-WinActivate, ahk_exe BingDict.exe
-return
-`; & v::
-g_is_combination := true
-WinActivate, ahk_exe code.exe
-return
-`; & r::
-g_is_combination := true
-WinActivate, ahk_exe Robomongo.exe
-return
 
-`; & z::
+g_window_n := 0
+g_window_m := 0
+
+*+!#n::
 GetKeyState, state, LCtrl
 if state = D
-  g_window_z := WinExist("A")
+  g_window_n := WinExist("A")
 else
-  if WinExist("ahk_id " . g_window_z)
+  if WinExist("ahk_id " . g_window_n)
   WinActivate
 return
 
-`; & x::
+*+!#m::
 GetKeyState, state, LCtrl
 if state = D
-  g_window_x := WinExist("A")
+  g_window_m := WinExist("A")
 else
-  if WinExist("ahk_id " . g_window_x)
+  if WinExist("ahk_id " . g_window_m)
   WinActivate
 return
-
-`; & Tab::
-g_is_combination := true
-WinGet, ActiveEXE, ProcessName, A
-WinGet, List, List, ahk_exe %ActiveEXE%
-IF List = 1
-  return
-Else
-{
-  WinActivate, % "ahk_id " . List%List%
-  return
-}

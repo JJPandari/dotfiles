@@ -112,6 +112,7 @@ if ! zgen saved; then
     zgen oh-my-zsh themes/robbyrussell
 
     zgen load chriskempson/base16-shell
+    zgen load seebi/dircolors-solarized
     zgen load Vifon/deer
     # zgen load junegunn/fzf # install script doesn't recognize windows/cygwin
     # ~/.zgen/junegunn/fzf-master/install
@@ -135,6 +136,9 @@ DEER_KEYS[page_up]='u'
 BASE16_SHELL="$HOME/.zgen/chriskempson/base16-shell-master/scripts/base16-solarized-light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
+DIR_COLOR_SOLAR="$HOME/.zgen/seebi/dircolors-solarized-master/dircolors.ansi-light"
+[[ -f $DIR_COLOR_SOLAR ]] && eval `dircolors $DIR_COLOR_SOLAR`
+
 # go to emacs with current context in terminal
 # https://github.com/xuchunyang/emacs.d/blob/master/misc/emacs.sh
 
@@ -151,6 +155,11 @@ calc ()
 {
     emacs -Q --batch --eval "(message \"%s\" (calc-eval \"$1\"))"
 }
+
+#prompt
+export PROMPT='
+[%{$fg[green]%}%n%{$reset_color%}@%m]
+%{$fg[cyan]%}%~%{$reset_color%} '
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -177,7 +186,7 @@ alias fgrep='fgrep --color=auto'              # show differences in colour
 alias ls='ls -hF'                 # classify files in colour
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
-alias ll='ls -l'                              # long list
+alias ll='ls -al'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 # use .agignore
@@ -241,6 +250,9 @@ alias out='./out'
 # auto added by install scripts:
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# https://superuser.com/a/398990/599147
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
