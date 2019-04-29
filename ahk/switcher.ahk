@@ -10,6 +10,16 @@ return
 +!#a::
 WinActivate, ahk_class EVERYTHING
 return
++!#q::
+WinActivate, ahk_class CommunicatorMainWindowClass
+return
+
++!#Space::
+if WinActive("ahk_exe XWin_MobaX.exe")
+  WinActivate, ahk_exe chrome.exe
+else
+  WinActivate, ahk_exe XWin_MobaX.exe
+return
 
 g_window_n := 0
 g_window_m := 0
