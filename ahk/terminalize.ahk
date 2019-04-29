@@ -91,6 +91,8 @@ return
 SendInput, {RWin Down}p{RWin Up}
 return
 
+; ===== C-* non-movement operations =====
+
 ^w::
 SendInput, ^{Backspace}
 return
@@ -126,6 +128,13 @@ SendInput, ^g
 return
 +>#g::
 SendInput, +^g
+return
+
+^s::
+SendInput, ^f
+return
+^>#s::
+SendInput, ^s
 return
 
 ; ===== M-* movements =====
