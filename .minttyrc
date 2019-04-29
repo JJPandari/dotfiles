@@ -13,4 +13,4 @@ CursorType=block
 ClicksTargetApp=no
 CtrlShiftShortcuts=yes
 ThemeFile=base16-solarized-light.minttyrc
-Window=maximized
+Window=max
