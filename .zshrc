@@ -112,7 +112,7 @@ if ! zgen saved; then
     zgen oh-my-zsh themes/robbyrussell
 
     zgen load chriskempson/base16-shell
-    zgen load seebi/dircolors-solarized
+    # zgen load seebi/dircolors-solarized
     zgen load Vifon/deer
     # zgen load junegunn/fzf # install script doesn't recognize windows/cygwin
     # ~/.zgen/junegunn/fzf-master/install
@@ -136,8 +136,8 @@ DEER_KEYS[page_up]='u'
 BASE16_SHELL="$HOME/.zgen/chriskempson/base16-shell-master/scripts/base16-solarized-light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-DIR_COLOR_SOLAR="$HOME/.zgen/seebi/dircolors-solarized-master/dircolors.ansi-light"
-[[ -f $DIR_COLOR_SOLAR ]] && eval `dircolors $DIR_COLOR_SOLAR`
+# DIR_COLOR_SOLAR="$HOME/.zgen/seebi/dircolors-solarized-master/dircolors.ansi-light"
+# [[ -f $DIR_COLOR_SOLAR ]] && eval `dircolors $DIR_COLOR_SOLAR`
 
 # go to emacs with current context in terminal
 # https://github.com/xuchunyang/emacs.d/blob/master/misc/emacs.sh

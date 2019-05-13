@@ -91,4 +91,8 @@ patch:
 
   # enable chinese input
   # TODO not work
-  app_options/org.gnu.Emacs: {}
+  # app_options:
+  #   org.gnu.Emacs:
+  #     ascii_mode: false
+  # app_options/com.google.Chrome: {}
+    # ascii_mode: false
