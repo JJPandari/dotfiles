@@ -77,49 +77,36 @@ export EDITOR='vim'
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
-source "${HOME}/.zgen/zgen.zsh"
-# if the init scipt doesn't exist
-if ! zgen saved; then
-    echo "Creating a zgen save"
-
-    zgen oh-my-zsh
-
-    # plugins
-    zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/tmux
-    zgen oh-my-zsh plugins/wd
-    # zgen oh-my-zsh plugins/sudo
-    # zgen oh-my-zsh plugins/command-not-found
-    zgen load hlissner/zsh-autopair autopair.zsh
-    zgen load zsh-users/zsh-syntax-highlighting
-
-    # zgen load /path/to/super-secret-private-plugin
-    # go to project root
-    # https://github.com/lululau/oh-my-zsh/blob/master/plugins/project-root/project-root.plugin.zsh
-    zgen load $HOME/.zsh/project-root.plugin.zsh
-
-    # bulk load
-#     zgen loadall <<EOPLUGINS
-#         zsh-users/zsh-history-substring-search
-#         # /path/to/local/plugin
-# EOPLUGINS
-    # ^ can't indent this EOPLUGINS
-
-    # completions
-    zgen load zsh-users/zsh-completions src
-
-    # theme
-    zgen oh-my-zsh themes/robbyrussell
-
-    zgen load chriskempson/base16-shell
-    # zgen load seebi/dircolors-solarized
-    zgen load Vifon/deer
-    # zgen load junegunn/fzf # install script doesn't recognize windows/cygwin
-    # ~/.zgen/junegunn/fzf-master/install
-
-    # save all to init script
-    zgen save
+# Check if zplug is installed
+if [[ ! -d ~/.zplug ]]; then
+  git clone https://github.com/zplug/zplug ~/.zplug
+  source ~/.zplug/init.zsh && zplug update --self
 fi
+
+# Essential
+source ~/.zplug/init.zsh
+
+zplug plugins/git, from:oh-my-zsh
+zplug plugins/tmux, from:oh-my-zsh
+zplug plugins/wd, from:oh-my-zsh
+# zplug plugins/sudo, from:oh-my-zsh
+# zplug plugins/command-not-found, from:oh-my-zsh
+zplug themes/robbyrussell, from:oh-my-zsh
+
+zplug hlissner/zsh-autopair, use:autopair.zsh
+zplug zsh-users/zsh-syntax-highlighting
+zplug zsh-users/zsh-completions, use:src
+zplug chriskempson/base16-shell, use:scripts/base16-solarized-light.sh
+# zplug seebi/dircolors-solarized
+zplug Vifon/deer, use:deer
+# zplug junegunn/fzf # install script doesn't recognize windows/cygwin
+# ~/.zgen/junegunn/fzf-master/install
+
+# Install packages that have not been installed yet
+if ! zplug check --verbose; then
+    echo; zplug install
+fi
+zplug load # --verbose
 
 autoload -U deer
 zle -N deer
@@ -129,12 +116,9 @@ bindkey -a '^[j' deer
 typeset -Ag DEER_KEYS
 DEER_KEYS[page_down]='d'
 DEER_KEYS[page_up]='u'
+DEER_KEYS[filter]=''
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.zgen/chriskempson/base16-shell-master/scripts/base16-solarized-light.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # DIR_COLOR_SOLAR="$HOME/.zgen/seebi/dircolors-solarized-master/dircolors.ansi-light"
 # [[ -f $DIR_COLOR_SOLAR ]] && eval `dircolors $DIR_COLOR_SOLAR`
@@ -156,7 +140,8 @@ calc ()
     emacs -Q --batch --eval "(message \"%s\" (calc-eval \"$1\"))"
 }
 
-#prompt
+# prompt
+# TODO this requires robbyrussell's theme, how to not?
 export PROMPT='
 [%{$fg[green]%}%n%{$reset_color%}@%m]
 %{$fg[cyan]%}%~%{$reset_color%} '
