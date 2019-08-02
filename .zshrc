@@ -1,65 +1,8 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-# export ZSH=/home/phpdev/.oh-my-zsh
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# plugins=(git)
-
-# source $ZSH/oh-my-zsh.sh
-
-# User configuration
+# enable # in terminal
+setopt interactivecomments
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
@@ -76,6 +19,9 @@ export EDITOR='vim'
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
+
+SAVEHIST=9999
+HISTFILE=~/.zsh_history
 
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
@@ -99,14 +45,32 @@ zplug zsh-users/zsh-completions, use:src
 zplug chriskempson/base16-shell, use:scripts/base16-solarized-light.sh
 # zplug seebi/dircolors-solarized
 zplug Vifon/deer, use:deer
-# zplug junegunn/fzf # install script doesn't recognize windows/cygwin
-# ~/.zgen/junegunn/fzf-master/install
+if [ ${$(uname -s):0:6} != "CYGWIN" ]; then
+    zplug junegunn/fzf
+fi
 
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then
     echo; zplug install
 fi
 zplug load # --verbose
+
+if [ ${$(uname -s):0:6} != "CYGWIN" ]; then
+    if [[ -f ~/.fzf.zsh ]]; then
+        source ~/.fzf.zsh
+    else
+        ~/.zplug/repos/junegunn/fzf/install
+    fi
+
+    FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules"
+    export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
+    export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
+    export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
+    export FZF_CTRL_T_OPTS='--exact'
+    export FZF_CTRL_R_OPTS='--exact'
+    export FZF_ALT_C_OPTS='--exact'
+    alias -g F='$(fzf --exact)'
+fi
 
 autoload -U deer
 zle -N deer
@@ -117,8 +81,6 @@ typeset -Ag DEER_KEYS
 DEER_KEYS[page_down]='d'
 DEER_KEYS[page_up]='u'
 DEER_KEYS[filter]=''
-
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # DIR_COLOR_SOLAR="$HOME/.zgen/seebi/dircolors-solarized-master/dircolors.ansi-light"
 # [[ -f $DIR_COLOR_SOLAR ]] && eval `dircolors $DIR_COLOR_SOLAR`
@@ -182,19 +144,22 @@ alias zshrc="$EDITOR ~/.zshrc"
 alias -g L='| less -r'
 alias -g H='| head'
 alias -g T='| tail'
-alias -g G='| grep --color'
+alias -g G='| rg'
 alias -g LL='2>&1 | less -r'
 alias -g CA='2>&1 | cat -A'
 alias -g NE='2> /dev/null'
 alias -g NUL='> /dev/null 2>&1'
-alias -g A='| ag -p ~/.agignore'
+# alias -g A='| ag -p ~/.agignore'
 alias -g hp='--help'
 alias -g hl='--help | less -r'
+
 alias res="source $HOME/.zshrc"
 alias -g v="vim"
 alias -g e="emacsclient -n"
 alias no="node -p"
 alias odir="explorer ."
+alias -- -="cd -"
+alias ..="cd .."
 
 # key bindings
 # -v: insert mode -a: normal mode
@@ -207,7 +172,8 @@ bindkey -v '^F' vi-forward-char
 bindkey -v '^D' vi-backward-char
 bindkey -v '^Q' vi-quoted-insert
 bindkey -v '^S' history-incremental-search-forward
-bindkey -v '^R' history-incremental-search-backward
+# let fzf do this
+# bindkey -v '^R' history-incremental-search-backward
 bindkey -v '^B' delete-char
 bindkey -v '^K' kill-line
 bindkey -v '^[f' emacs-forward-word

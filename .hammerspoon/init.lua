@@ -31,7 +31,7 @@ local key2App = {
   f = {"Google Chrome"},
   t = {"iTerm"},
   a = {"Finder", true},
-  q = {"Skype for Business", true},
+  q = {"Slack", true},
 }
 
 for button, appConf in pairs(key2App) do
@@ -98,6 +98,7 @@ set_app_input_method('Alfred', English, hs.window.filter.windowCreated)
 set_app_input_method('微信', Chinese)
 set_app_input_method('企业微信', Chinese)
 set_app_input_method('Skype for Business', Chinese)
+set_app_input_method('Slack', Chinese)
 set_app_input_method('Google Chrome', English)
 set_app_input_method('iTerm2', English)
 set_app_input_method('Emacs', English)
