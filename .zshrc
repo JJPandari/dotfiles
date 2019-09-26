@@ -20,8 +20,15 @@ export EDITOR='vim'
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
-SAVEHIST=9999
-HISTFILE=~/.zsh_history
+# https://unix.stackexchange.com/a/111777/214305
+# http://zsh.sourceforge.net/Doc/Release/Options.html
+export SAVEHIST=9999
+export HISTSIZE=9999
+export HISTFILE=~/.zsh_history
+# instantly append history to the file (incappendhistory) would nullify histignorealldups's effort,
+# as it removes duplicate from the list but not the file, so use default: append but not incappend
+# setopt incappendhistory
+setopt histignorealldups
 
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
@@ -74,7 +81,6 @@ fi
 
 autoload -U deer
 zle -N deer
-# bindkey '\ek' deer
 bindkey -v '^[j' deer
 bindkey -a '^[j' deer
 typeset -Ag DEER_KEYS
@@ -89,12 +95,17 @@ DEER_KEYS[filter]=''
 # https://github.com/xuchunyang/emacs.d/blob/master/misc/emacs.sh
 
 mg() {
-    emacsclient -n -e '(magit-status)' > /dev/null
+    emacsclient -n -e '(magit-status)' -e '(open-emacs-window)' > /dev/null
 }
 
 dr() {
+    if [ ${$(uname -s):0:6} = "CYGWIN" ]; then
+        WORKING_DIR=$(cygpath -m `pwd`)/.
+    else
+        WORKING_DIR=$(pwd)/.
+    fi
     # adding /. prevents elisp from stripping out the last segment
-    emacsclient -n -e '(deer "'$(cygpath -m `pwd`)'/.")' -e '(open-emacs-window)' > /dev/null
+    emacsclient -n -e '(deer "'"$WORKING_DIR"'")' -e '(open-emacs-window)' > /dev/null
 }
 
 calc ()
@@ -107,15 +118,6 @@ calc ()
 export PROMPT='
 [%{$fg[green]%}%n%{$reset_color%}@%m]
 %{$fg[cyan]%}%~%{$reset_color%} '
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Default to human readable figures
 alias df='df -h'
@@ -137,14 +139,14 @@ alias ll='ls -al'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 # use .agignore
-alias ag='ag -p ~/.agignore'
+alias -g ag='ag -p ~/.agignore'
 
 # https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#common-aliases
 alias zshrc="$EDITOR ~/.zshrc"
 alias -g L='| less -r'
 alias -g H='| head'
 alias -g T='| tail'
-alias -g G='| rg'
+alias -g G='| rg -S'
 alias -g LL='2>&1 | less -r'
 alias -g CA='2>&1 | cat -A'
 alias -g NE='2> /dev/null'
@@ -154,7 +156,8 @@ alias -g hp='--help'
 alias -g hl='--help | less -r'
 
 alias res="source $HOME/.zshrc"
-alias -g v="vim"
+alias ren="nginx -s reload"
+alias -g v="nvim"
 alias -g e="emacsclient -n"
 alias no="node -p"
 alias odir="explorer ."
@@ -185,25 +188,21 @@ bindkey -a '^E' vi-end-of-line
 bindkey -a '/' vi-history-search-forward
 bindkey -a '?' vi-history-search-backward
 
-bindkey -v '^[r' project_root_widget
-bindkey -a '^[r' project_root_widget
-
 # shadowsocks
 # export http_proxy=http://127.0.0.1:1080
 
 # disable flow control
 stty -ixon
 
-# playing with C
-alias jj='gcc practice.c -o out.exe'
-alias out='./out'
+# https://superuser.com/a/398990/599147
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+
+# start a emacs daemon for scripts etc.
+# emacs -Q --daemon=maid
 
 # auto added by install scripts:
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# https://superuser.com/a/398990/599147
-[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
