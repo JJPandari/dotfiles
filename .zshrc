@@ -1,18 +1,15 @@
-# enable # in terminal
-setopt interactivecomments
-
+#----------------------------------------------------------------------------
+# global env
+#----------------------------------------------------------------------------
 # export MANPATH="/usr/local/man:$MANPATH"
-
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-export EDITOR='vim'
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+else
+    export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -20,6 +17,9 @@ export EDITOR='vim'
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
+#----------------------------------------------------------------------------
+# command history
+#----------------------------------------------------------------------------
 # https://unix.stackexchange.com/a/111777/214305
 # http://zsh.sourceforge.net/Doc/Release/Options.html
 export SAVEHIST=9999
@@ -30,6 +30,35 @@ export HISTFILE=~/.zsh_history
 # setopt incappendhistory
 setopt histignorealldups
 
+#----------------------------------------------------------------------------
+# key bindings
+#----------------------------------------------------------------------------
+# -v: insert mode -a: normal mode
+bindkey -v
+bindkey -v '^A' vi-beginning-of-line
+bindkey -v '^E' vi-end-of-line
+bindkey -v '^P' up-line-or-history
+bindkey -v '^N' down-line-or-history
+bindkey -v '^F' vi-forward-char
+bindkey -v '^D' vi-backward-char
+bindkey -v '^Q' vi-quoted-insert
+bindkey -v '^S' history-incremental-search-forward
+# let fzf do this
+# bindkey -v '^R' history-incremental-search-backward
+bindkey -v '^B' delete-char
+bindkey -v '^K' kill-line
+bindkey -v '^[f' emacs-forward-word
+bindkey -v '^[d' emacs-backward-word
+bindkey -v '^[b' kill-word
+bindkey -v '^_' undo
+bindkey -a '^A' vi-beginning-of-line
+bindkey -a '^E' vi-end-of-line
+bindkey -a '/' vi-history-search-forward
+bindkey -a '?' vi-history-search-backward
+
+#----------------------------------------------------------------------------
+# plugins with zplug
+#----------------------------------------------------------------------------
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
   git clone https://github.com/zplug/zplug ~/.zplug
@@ -55,6 +84,8 @@ zplug Vifon/deer, use:deer
 if [ ${$(uname -s):0:6} != "CYGWIN" ]; then
     zplug junegunn/fzf
 fi
+# let zplug manage itself
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then
@@ -62,6 +93,7 @@ if ! zplug check --verbose; then
 fi
 zplug load # --verbose
 
+# NOTE: vi mode need to be set before loading fzf bindings
 if [ ${$(uname -s):0:6} != "CYGWIN" ]; then
     if [[ -f ~/.fzf.zsh ]]; then
         source ~/.fzf.zsh
@@ -91,6 +123,9 @@ DEER_KEYS[filter]=''
 # DIR_COLOR_SOLAR="$HOME/.zgen/seebi/dircolors-solarized-master/dircolors.ansi-light"
 # [[ -f $DIR_COLOR_SOLAR ]] && eval `dircolors $DIR_COLOR_SOLAR`
 
+#----------------------------------------------------------------------------
+# functions
+#----------------------------------------------------------------------------
 # go to emacs with current context in terminal
 # https://github.com/xuchunyang/emacs.d/blob/master/misc/emacs.sh
 
@@ -113,24 +148,26 @@ calc ()
     emacs -Q --batch --eval "(message \"%s\" (calc-eval \"$1\"))"
 }
 
+#----------------------------------------------------------------------------
 # prompt
+#----------------------------------------------------------------------------
 # TODO this requires robbyrussell's theme, how to not?
 export PROMPT='
 [%{$fg[green]%}%n%{$reset_color%}@%m]
 %{$fg[cyan]%}%~%{$reset_color%} '
 
+#----------------------------------------------------------------------------
+# aliases
+#----------------------------------------------------------------------------
 # Default to human readable figures
 alias df='df -h'
 alias du='du -h'
-#
-# Misc :)
 alias -g less='less -r'                          # raw control characters
 alias -g le='less -r'
 # alias whence='type -a'                        # where, of a sort
 alias -g grep='grep --color'                     # show differences in colour
 alias egrep='egrep --color=auto'              # show differences in colour
 alias fgrep='fgrep --color=auto'              # show differences in colour
-#
 # Some shortcuts for different directory listings
 alias ls='ls -hF'                 # classify files in colour
 alias dir='ls --color=auto --format=vertical'
@@ -164,31 +201,13 @@ alias odir="explorer ."
 alias -- -="cd -"
 alias ..="cd .."
 
-# key bindings
-# -v: insert mode -a: normal mode
-bindkey -v
-bindkey -v '^A' vi-beginning-of-line
-bindkey -v '^E' vi-end-of-line
-bindkey -v '^P' up-line-or-history
-bindkey -v '^N' down-line-or-history
-bindkey -v '^F' vi-forward-char
-bindkey -v '^D' vi-backward-char
-bindkey -v '^Q' vi-quoted-insert
-bindkey -v '^S' history-incremental-search-forward
-# let fzf do this
-# bindkey -v '^R' history-incremental-search-backward
-bindkey -v '^B' delete-char
-bindkey -v '^K' kill-line
-bindkey -v '^[f' emacs-forward-word
-bindkey -v '^[d' emacs-backward-word
-bindkey -v '^[b' kill-word
-bindkey -v '^_' undo
-bindkey -a '^A' vi-beginning-of-line
-bindkey -a '^E' vi-end-of-line
-bindkey -a '/' vi-history-search-forward
-bindkey -a '?' vi-history-search-backward
+#----------------------------------------------------------------------------
+# options etc.
+#----------------------------------------------------------------------------
+# enable # in terminal
+setopt interactivecomments
 
-# shadowsocks
+# proxy
 # export http_proxy=http://127.0.0.1:1080
 
 # disable flow control
@@ -200,8 +219,9 @@ stty -ixon
 # start a emacs daemon for scripts etc.
 # emacs -Q --daemon=maid
 
+#----------------------------------------------------------------------------
 # auto added by install scripts:
-
+#----------------------------------------------------------------------------
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.

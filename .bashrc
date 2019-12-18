@@ -216,9 +216,8 @@ alias ag='ag --path-to-agignore ~/.agignore'
 #disable flow control
 stty -ixon
 
-#playing with C
-alias jj='gcc practice.c -o out.exe'
-alias out='./out'
+# https://superuser.com/a/398990/599147
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
