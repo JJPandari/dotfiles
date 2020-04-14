@@ -51,6 +51,8 @@ bindkey -v '^[f' emacs-forward-word
 bindkey -v '^[d' emacs-backward-word
 bindkey -v '^[b' kill-word
 bindkey -v '^_' undo
+bindkey -v '^[n' down-history
+bindkey -v '^[p' up-history
 bindkey -a '^A' vi-beginning-of-line
 bindkey -a '^E' vi-end-of-line
 bindkey -a '/' vi-history-search-forward
