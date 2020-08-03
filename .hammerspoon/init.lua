@@ -10,7 +10,6 @@ myCurrentAppName = ""
 -- Maximize window when specify application started.
 local maximizeApps = {
   "/Applications/iTerm.app",
-  "/Applications/Google Chrome.app",
 }
 
 local windowCreateFilter = hs.window.filter.new():setDefaultFilter()
@@ -28,7 +27,7 @@ end)
 -- app shortcuts
 local key2App = {
   e = {"Emacs"},
-  f = {"Google Chrome"},
+  f = {"Firefox"},
   t = {"iTerm"},
   a = {"Finder", true},
   q = {"Microsoft Teams", true},
@@ -58,7 +57,7 @@ end
 
 hs.hotkey.bind(hyper, "space", function()
     if hs.window.focusedWindow():application():name() == "Emacs" then
-      gotoApp("Google Chrome")
+      gotoApp("Firefox")
       English()
     else
       gotoApp("Emacs")
@@ -101,6 +100,7 @@ set_app_input_method('Skype for Business', Chinese)
 set_app_input_method('Slack', Chinese)
 set_app_input_method('Microsoft Teams', Chinese)
 set_app_input_method('Google Chrome', English)
+set_app_input_method('Firefox', English)
 set_app_input_method('iTerm2', English)
 set_app_input_method('Emacs', English)
 

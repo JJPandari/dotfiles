@@ -70,11 +70,6 @@ fi
 # Essential
 source ~/.zplug/init.zsh
 
-zplug plugins/git, from:oh-my-zsh
-zplug plugins/tmux, from:oh-my-zsh
-zplug plugins/wd, from:oh-my-zsh
-# zplug plugins/sudo, from:oh-my-zsh
-# zplug plugins/command-not-found, from:oh-my-zsh
 zplug themes/robbyrussell, from:oh-my-zsh
 
 zplug hlissner/zsh-autopair, use:autopair.zsh
@@ -202,6 +197,10 @@ alias no="node -p"
 alias odir="explorer ."
 alias -- -="cd -"
 alias ..="cd .."
+
+alias tlist='tmux list-sessions'
+alias tnew='tmux new-session -s'
+alias tattach='tmux attach -t'
 
 #----------------------------------------------------------------------------
 # options etc.
