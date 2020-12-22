@@ -145,6 +145,21 @@ calc ()
     emacs -Q --batch --eval "(message \"%s\" (calc-eval \"$1\"))"
 }
 
+# use current path when opening files in emacs term
+#
+# INSIDE_EMACS 则是 Emacs 在创建 term/shell/eshell 时都会带上的环境变量
+# 通常 shell/tramp 会将 TERM 环境变量设置成
+# dumb，所以这里要将他们排除。
+#
+# shell 下的目录同步不采用这种方式
+function precmd() {
+    if [[ -n "$INSIDE_EMACS" && "$TERM" != "dumb" ]]; then
+        echo -e "\033AnSiTc" "$(pwd)"
+        echo -e "\033AnSiTh" $(hostname -f)
+        echo -e "\033AnSiTu" "$LOGNAME"
+    fi
+}
+
 #----------------------------------------------------------------------------
 # prompt
 #----------------------------------------------------------------------------
@@ -201,6 +216,7 @@ alias ..="cd .."
 alias tlist='tmux list-sessions'
 alias tnew='tmux new-session -s'
 alias tattach='tmux attach -t'
+alias tkill='tmux kill-session -t'
 
 #----------------------------------------------------------------------------
 # options etc.
@@ -214,6 +230,9 @@ setopt interactivecomments
 # disable flow control
 stty -ixon
 
+# work configs
+[[ -e ~/.privaterc ]] && source ~/.privaterc
+
 # https://superuser.com/a/398990/599147
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
@@ -223,7 +242,5 @@ stty -ixon
 #----------------------------------------------------------------------------
 # auto added by install scripts:
 #----------------------------------------------------------------------------
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
