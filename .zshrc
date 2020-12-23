@@ -187,8 +187,6 @@ alias vdir='ls --color=auto --format=long'
 alias ll='ls -al'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
-# use .agignore
-alias -g ag='ag -p ~/.agignore'
 
 # https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#common-aliases
 alias zshrc="$EDITOR ~/.zshrc"
@@ -200,7 +198,7 @@ alias -g LL='2>&1 | less -r'
 alias -g CA='2>&1 | cat -A'
 alias -g NE='2> /dev/null'
 alias -g NUL='> /dev/null 2>&1'
-# alias -g A='| ag -p ~/.agignore'
+# alias -g A='| ag'
 alias -g hp='--help'
 alias -g hl='--help | less -r'
 
