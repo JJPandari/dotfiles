@@ -1,15 +1,11 @@
 {
-  "settingsVersion": "1.64",
+  "settingsVersion": "1.66",
   "exclusionRules": [
-    {
-      "pattern": "https?://mail.google.com/*",
-      "passKeys": ""
-    }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\n# Insert your preferred key mappings here.\n#unmap gg\n#unmap gu\n#unmap gU\n#unmap gi\n#unmap gf\n#unmap gF\n#unmap ge\n#unmap gE\n#unmap gt\n#unmap gT\n#unmap g0\n#unmap g$\n#unmap gs\n\nmap ' Marks.activateGotoMode\nmap K goBack\nmap J goForward\nmap H previousTab\nmap L nextTab\nmap < moveTabLeft\nmap > moveTabRight\nmap q removeTab\nmap x restoreTab\n#map g scrollTop\nmap <space>i focusInput\nmap <space>u goUp\nmap <space>U goToRoot\nmap <space>e Vomnibar.activateEditUrl\nmap <space>E Vomnibar.activateEditUrlInNewTab\nmap e Vomnibar.activateEditUrl\nmap E Vomnibar.activateEditUrlInNewTab\nmap <space>s toggleViewSource\nmap <space>f LinkHints.activateModeWithQueue\nmap s Vomnibar.activateTabSelection",
+  "keyMappings": "# Insert your preferred key mappings here.\n# Insert your preferred key mappings here.\n#unmap gg\n#unmap gu\n#unmap gU\n#unmap gi\n#unmap gf\n#unmap gF\n#unmap ge\n#unmap gE\n#unmap gt\n#unmap gT\n#unmap g0\n#unmap g$\n#unmap gs\n\nmap ' Marks.activateGotoMode\nmap K goBack\nmap J goForward\nunmap H\nunmap L\nmap , previousTab\nmap . nextTab\nmap < moveTabLeft\nmap > moveTabRight\nmap q removeTab\nmap x restoreTab\n#map g scrollTop\nmap <space>i focusInput\nmap <space>u goUp\nmap <space>U goToRoot\nmap e Vomnibar.activateEditUrl\nmap <space>e Vomnibar.activateEditUrlInNewTab\nmap <space>s toggleViewSource\nmap <space>f LinkHints.activateModeToOpenInNewTab\nmap F LinkHints.activateModeWithQueue\nmap s Vomnibar.activateTabSelection\nunmap O\nmap <space>o Vomnibar.activateInNewTab\nunmap B\nmap <space>b Vomnibar.activateBookmarksInNewTab",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
