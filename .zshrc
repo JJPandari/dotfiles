@@ -70,8 +70,6 @@ fi
 # Essential
 source ~/.zplug/init.zsh
 
-zplug themes/robbyrussell, from:oh-my-zsh
-
 zplug hlissner/zsh-autopair, use:autopair.zsh
 zplug zsh-users/zsh-syntax-highlighting
 zplug zsh-users/zsh-completions, use:src
@@ -163,10 +161,9 @@ function precmd() {
 #----------------------------------------------------------------------------
 # prompt
 #----------------------------------------------------------------------------
-# TODO this requires robbyrussell's theme, how to not?
 export PROMPT='
-[%{$fg[green]%}%n%{$reset_color%}@%m]
-%{$fg[cyan]%}%~%{$reset_color%} '
+[%F{green}%n%f@%m]
+%F{cyan}%~%f '
 
 #----------------------------------------------------------------------------
 # aliases
@@ -235,6 +232,8 @@ stty -ixon
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 # start a emacs daemon for scripts etc.
+alias emaid='EMACS_SOCKET=maid open -n /Applications/Emacs.app'
+alias -g em="emacsclient -n -s maid"
 # emacs -Q --daemon=maid
 
 #----------------------------------------------------------------------------
@@ -242,3 +241,12 @@ stty -ixon
 #----------------------------------------------------------------------------
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+if [ -d "$HOME/.jenv" ]; then
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
