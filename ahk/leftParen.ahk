@@ -1,3 +1,6 @@
+#If !WinActive("ahk_exe aces.exe") and !WinActive("ahk_exe KFGame.exe") and !WinActive("ahk_exe helldivers.exe") and !WinActive("ahk_class R6Game") and !WinActive("ahk_class CryENGINE") and !WinActive("ahk_class Respawn001")
+#UseHook
+
 ; http://superuser.com/a/527542
 g_LastShiftKeyDownTime := 0
 g_AbortSendParen := false

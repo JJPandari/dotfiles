@@ -1,4 +1,4 @@
-#If !WinActive("ahk_class Emacs") and !WinActive("ahk_class mintty") and !WinActive("ahk_exe XWin_MobaX.exe") and !WinActive("ahk_class MozillaWindowClass") and !WinActive("ahk_exe aces.exe") and !WinActive("ahk_exe KFGame.exe") and !WinActive("ahk_exe helldivers.exe")
+#If !WinActive("ahk_class Emacs") and !WinActive("ahk_class mintty") and !WinActive("ahk_exe aces.exe") and !WinActive("ahk_exe KFGame.exe") and !WinActive("ahk_exe helldivers.exe") and !WinActive("ahk_class R6Game") and !WinActive("ahk_class CryENGINE") and !WinActive("ahk_exe DeadByDaylight-Win64-Shipping.exe") and !WinActive("ahk_exe Cyberpunk2077.exe") and !WinActive("ahk_exe blender.exe") and !WinActive("ahk_class Respawn001")
 #UseHook
 
 ; ===== C-* movements =====
@@ -9,12 +9,15 @@ return
 ^+a::
 SendInput, +{Home}
 return
+<#a::
 >#a::
 SendInput, ^a
 return
+^<#a::
 ^>#a::
 SendInput, ^a
 return
++<#a::
 +>#a::
 SendInput, {RWin Down}a{RWin Up}
 return
@@ -26,9 +29,11 @@ return
 SendInput, +{End}
 return
 ; >#e:: >#e
+^<#e::
 ^>#e::
 SendInput, ^e
 return
++<#e::
 +>#e::
 SendInput, {RWin Down}e{RWin Up}
 return
@@ -39,15 +44,6 @@ return
 ^+f::
 SendInput, +{Right}
 return
->#f::
-SendInput, ^f
-return
-^>#f::
-SendInput, ^f
-return
-+>#f::
-SendInput, {RWin Down}f{RWin Up}
-return
 
 ^d::
 SendInput, {Left}
@@ -55,12 +51,15 @@ return
 ^+d::
 SendInput, +{left}
 return
+<#d::
 >#d::
 SendInput, ^d
 return
+^<#d::
 ^>#d::
 SendInput, ^d
 return
++<#d::
 +>#d::
 SendInput, {RWin Down}d{RWin Up}
 return
@@ -68,12 +67,15 @@ return
 ^n::
 SendInput, {Down}
 return
+<#n::
 >#n::
 SendInput, ^n
 return
+^<#n::
 ^>#n::
 SendInput, ^n
 return
++<#n::
 +>#n::
 SendInput, {RWin Down}n{RWin Up}
 return
@@ -81,12 +83,15 @@ return
 ^p::
 SendInput, {Up}
 return
+<#p::
 >#p::
 SendInput, ^p
 return
+^<#p::
 ^>#p::
 SendInput, ^p
 return
++<#p::
 +>#p::
 SendInput, {RWin Down}p{RWin Up}
 return
@@ -96,12 +101,15 @@ return
 ^w::
 SendInput, ^{Backspace}
 return
+<#w::
 >#w::
 SendInput, ^w
 return
+^<#w::
 ^>#w::
 SendInput, ^w
 return
++<#w::
 +>#w::
 SendInput, {RWin Down}w{RWin Up}
 return
@@ -110,9 +118,11 @@ return
 SendInput, {Del}
 return
 ; >#b:: >#b
+^<#b::
 ^>#b::
 SendInput, ^b
 return
++<#b::
 +>#b::
 SendInput, {RWin Down}b{RWin Up}
 return
@@ -120,12 +130,15 @@ return
 ^g::
 SendInput, {Esc}
 return
+<#g::
 >#g::
 SendInput, ^g
 return
+^<#g::
 ^>#g::
 SendInput, ^g
 return
++<#g::
 +>#g::
 SendInput, +^g
 return
@@ -133,6 +146,7 @@ return
 ^s::
 SendInput, ^f
 return
+^<#s::
 ^>#s::
 SendInput, ^s
 return
@@ -142,6 +156,7 @@ return
 !f::
 SendInput, ^{Right}
 return
+!<#f::
 !>#f::
 SendInput, !f
 return
@@ -149,6 +164,7 @@ return
 !d::
 SendInput, ^{Left}
 return
+!<#d::
 !>#d::
 SendInput, !d
 return
@@ -156,6 +172,7 @@ return
 !b::
 SendInput, ^{Del}
 return
+!<#b::
 !>#b::
 SendInput, !b
 return
@@ -165,6 +182,7 @@ return
 ^/::
 SendInput, ^z
 return
+^<#/::
 ^>#/::
 SendInput, ^/
 return
@@ -172,6 +190,7 @@ return
 ^+/::
 SendInput, ^y
 return
+^+<#/::
 ^+>#/::
 SendInput, ^+/
 return
