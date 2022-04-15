@@ -3,19 +3,20 @@ module.exports = {
     // parser: "babel-eslint"
   },
   extends: [
-    'standard'
+    'eslint:recommended'
     // 'plugin:vue/recommended'
     // 'plugin:react/recommended'
   ],
   env: {
     'browser': true,
-    'node': true
- },
+    'node': true,
+    es2021: true
+  },
   globals: {
     $: true,
     jQuery: true,
     jquery: true
- },
+  },
   rules: {
     // override/add rules settings here, such as:
     // 'vue/no-unused-vars': 'error'

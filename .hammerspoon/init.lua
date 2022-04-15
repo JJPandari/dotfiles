@@ -31,6 +31,7 @@ local key2App = {
   t = {"iTerm"},
   a = {"Finder", true},
   q = {"Microsoft Teams", true},
+  d = {"Slack", true},
 }
 
 for button, appConf in pairs(key2App) do
@@ -97,7 +98,7 @@ set_app_input_method('Alfred', English, hs.window.filter.windowCreated)
 set_app_input_method('微信', Chinese)
 set_app_input_method('企业微信', Chinese)
 set_app_input_method('Skype for Business', Chinese)
-set_app_input_method('Slack', English)
+set_app_input_method('Slack', Chinese)
 set_app_input_method('Microsoft Teams', Chinese)
 set_app_input_method('Google Chrome', English)
 set_app_input_method('Firefox', English)

@@ -1,5 +1,7 @@
 .git
 node_modules
+tags
 TAGS
+tagz
 *~
 \#*
