@@ -1,2 +1,13 @@
 [log]
 	date = format:'周%u %Y-%m-%d %H:%M:%S %z'
+# # delta (diff with syntax highlighting)
+# [core]
+# 	pager = delta
+# [interactive]
+# 	diffFilter = delta --color-only
+# [merge]
+# 	conflictstyle = diff3
+# [diff]
+# 	colorMoved = default
+# [delta]
+# 	navigate = true  # use n and N to move between diff sections
