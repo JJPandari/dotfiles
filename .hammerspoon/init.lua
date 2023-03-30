@@ -26,9 +26,9 @@ end)
 
 -- app shortcuts
 local key2App = {
-  e = {"Emacs"},
+  -- e = {"Emacs"},
   f = {"Firefox"},
-  t = {"iTerm"},
+  -- t = {"iTerm"},
   a = {"Finder", true},
   q = {"Microsoft Teams", true},
   d = {"Slack", true},
@@ -57,13 +57,13 @@ for button, appConf in pairs(key2App) do
 end
 
 hs.hotkey.bind(hyper, "space", function()
-    if hs.window.focusedWindow():application():name() == "Emacs" then
-      gotoApp("Firefox")
-      English()
-    else
-      gotoApp("Emacs")
-      English()
-    end
+                 if hs.window.focusedWindow():application():name() == "Emacs" then
+                   gotoApp("Firefox")
+                   English()
+                 else
+                   gotoApp("Emacs")
+                   English()
+                 end
 end)
 
 function gotoApp(appName)
@@ -75,9 +75,30 @@ function gotoApp(appName)
   end
 end
 
+function gotoEmacsMain()
+  for i, app in ipairs(hs.application.applicationsForBundleID('org.gnu.Emacs')) do
+    local win = app:getWindow('看，灰机！ ✈✈✈✈✈✈✈✈✈')
+    if win ~= nil then
+      win:focus()
+    end
+  end
+end
+
+function gotoTerminal()
+  for i, app in ipairs(hs.application.applicationsForBundleID('org.gnu.Emacs')) do
+    local win = app:getWindow('maid')
+    if win ~= nil then
+      win:focus()
+    end
+  end
+end
+
+hs.hotkey.bind(hyper, "e", gotoEmacsMain)
+hs.hotkey.bind(hyper, "t", gotoTerminal)
+
 -- app default input methods
 function Chinese()
-  hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Rime")
+  hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Hans")
 end
 
 function English()
@@ -98,7 +119,7 @@ set_app_input_method('Alfred', English, hs.window.filter.windowCreated)
 set_app_input_method('微信', Chinese)
 set_app_input_method('企业微信', Chinese)
 set_app_input_method('Skype for Business', Chinese)
-set_app_input_method('Slack', Chinese)
+set_app_input_method('Slack', English)
 set_app_input_method('Microsoft Teams', Chinese)
 set_app_input_method('Google Chrome', English)
 set_app_input_method('Firefox', English)
@@ -119,12 +140,18 @@ hs.hotkey.bind({'ctrl', 'cmd'}, ".", function()
 		  hs.alert.show("App path:        "
 				..hs.window.focusedWindow():application():path()
 				.."\n"
-				.."App name:      "
-				..hs.window.focusedWindow():application():name()
+  .."App name:      "
+  ..hs.window.focusedWindow():application():name()
 				.."\n"
 				.."App ID:      "
 				..hs.window.focusedWindow():application():bundleID()
 				.."\n"
+				.."App title:      "
+  ..hs.window.focusedWindow():application():title()
+  .."\n"
+				.."window title:      "
+				..hs.window.focusedWindow():title()
+  .."\n"
 				.."IM source id:  "
 				..hs.keycodes.currentSourceID())
    end)

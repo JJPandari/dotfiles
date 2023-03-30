@@ -247,6 +247,13 @@ alias emaid='EMACS_SOCKET=maid open -n /Applications/Emacs.app'
 alias -g em="emacsclient -n -s maid"
 # emacs -Q --daemon=maid
 
+# for emacs vterm ; needs to be at end
+vterm_prompt_end() {
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+}
+setopt PROMPT_SUBST
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
+
 #----------------------------------------------------------------------------
 # auto added by install scripts:
 #----------------------------------------------------------------------------
