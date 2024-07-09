@@ -34,6 +34,7 @@ setopt histignorealldups
 # key bindings
 #----------------------------------------------------------------------------
 # -v: insert mode -a: normal mode
+
 bindkey -v
 bindkey -v '^A' vi-beginning-of-line
 bindkey -v '^E' vi-end-of-line
@@ -53,8 +54,7 @@ bindkey -v '^[b' kill-word
 bindkey -v '^_' undo
 bindkey -v '^[n' down-history
 bindkey -v '^[p' up-history
-bindkey -a '^A' vi-beginning-of-line
-bindkey -a '^E' vi-end-of-line
+
 bindkey -a '/' vi-history-search-forward
 bindkey -a '?' vi-history-search-backward
 
@@ -212,8 +212,8 @@ alias -g hl='--help | less -r'
 
 alias res="source $HOME/.zshrc"
 alias ren="nginx -s reload"
-alias -g v="nvim"
-alias -g e="emacsclient -n"
+alias v="nvim"
+alias e="emacsclient -n"
 alias no="node -p"
 alias odir="explorer ."
 alias -- -="cd -"

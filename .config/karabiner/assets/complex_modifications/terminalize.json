@@ -7,10 +7,10 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "b",
+            "key_code": "delete_or_backspace",
             "modifiers": {
               "mandatory": [
-                "control"
+                "shift"
               ],
               "optional": [
                 "caps_lock",
@@ -28,39 +28,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -68,7 +37,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "d",
+            "key_code": "comma",
             "modifiers": {
               "mandatory": [
                 "control"
@@ -90,39 +59,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -130,7 +68,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "f",
+            "key_code": "period",
             "modifiers": {
               "mandatory": [
                 "control"
@@ -152,39 +90,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -214,39 +121,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -276,39 +152,76 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock",
+                "shift",
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.gnu\\.Emacs$",
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock",
+                "shift",
+                "option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": [
+                "command"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^org\\.gnu\\.Emacs$",
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -319,7 +232,7 @@
             "key_code": "w",
             "modifiers": {
               "mandatory": [
-                "control"
+                "command"
               ],
               "optional": [
                 "caps_lock",
@@ -341,39 +254,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -406,39 +288,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -473,39 +324,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -513,7 +333,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "d",
+            "key_code": "comma",
             "modifiers": {
               "mandatory": [
                 "option"
@@ -537,39 +357,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -577,7 +366,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "f",
+            "key_code": "period",
             "modifiers": {
               "mandatory": [
                 "option"
@@ -601,39 +390,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -641,7 +399,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "b",
+            "key_code": "delete_or_backspace",
             "modifiers": {
               "mandatory": [
                 "option"
@@ -664,39 +422,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^org\\.gnu\\.Emacs$",
-                "^org\\.gnu\\.AquamacsEmacs$",
-                "^org\\.gnu\\.Aquamacs$",
-                "^org\\.pqrs\\.unknownapp.conkeror$",
-                "^engineer\\.Atlas\\.Next$",
-                "^com\\.microsoft\\.rdc$",
-                "^com\\.microsoft\\.rdc\\.mac$",
-                "^com\\.microsoft\\.rdc\\.osx\\.beta$",
-                "^net\\.sf\\.cord$",
-                "^com\\.thinomenon\\.RemoteDesktopConnection$",
-                "^com\\.itap-mobile\\.qmote$",
-                "^com\\.nulana\\.remotixmac$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
-                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.web$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.2X\\.Client\\.Mac$",
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^org\\.vim\\.",
-                "^com\\.vmware\\.fusion$",
-                "^com\\.vmware\\.horizon$",
-                "^com\\.vmware\\.view$",
-                "^com\\.parallels\\.desktop$",
-                "^com\\.parallels\\.vm$",
-                "^com\\.parallels\\.desktop\\.console$",
-                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                "^com\\.vmware\\.proxyApp\\.",
-                "^com\\.parallels\\.winapp\\.",
-                "^org\\.x\\.X11$",
-                "^com\\.apple\\.x11$",
-                "^org\\.macosforge\\.xquartz\\.X11$",
-                "^org\\.macports\\.X11$"
+                "^com\\.neovide\\.neovide$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
