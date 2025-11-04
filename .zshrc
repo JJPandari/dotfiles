@@ -29,6 +29,7 @@ export HISTFILE=~/.zsh_history
 # as it removes duplicate from the list but not the file, so use default: append but not incappend
 # setopt incappendhistory
 setopt histignorealldups
+setopt share_history # different shells can share history
 
 #----------------------------------------------------------------------------
 # key bindings
@@ -175,7 +176,7 @@ vterm_printf() {
 # prompt
 #----------------------------------------------------------------------------
 export PROMPT='
-[%F{green}%n%f@%m]
+[%F{green}%n%f@%m] %D{%H:%M:%S}
 %F{cyan}%~%f '
 
 #----------------------------------------------------------------------------
@@ -242,6 +243,7 @@ stty -ixon
 # https://superuser.com/a/398990/599147
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
+alias ema='open -n /Applications/Emacs.app'
 # start a emacs daemon for scripts etc.
 alias emaid='EMACS_SOCKET=maid open -n /Applications/Emacs.app'
 alias -g em="emacsclient -n -s maid"
@@ -253,24 +255,3 @@ vterm_prompt_end() {
 }
 setopt PROMPT_SUBST
 PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
-
-#----------------------------------------------------------------------------
-# auto added by install scripts:
-#----------------------------------------------------------------------------
-# rvm
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# jenv
-if [ -d "$HOME/.jenv" ]; then
-    export PATH="$HOME/.jenv/bin:$PATH"
-    eval "$(jenv init -)"
-fi
-
-#nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-#pyenv
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"

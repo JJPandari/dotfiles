@@ -29,6 +29,7 @@ local key2App = {
   -- e = {"Emacs"},
   f = {"Firefox"},
   -- t = {"iTerm"},
+  v = {"Visual Studio Code"},
   a = {"Finder", true},
   q = {"Microsoft Teams", true},
   d = {"Slack", true},
